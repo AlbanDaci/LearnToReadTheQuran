@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/ordinal_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="1"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/latin_arabic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/ordinal_number"
+        android:layout_toRightOf="@+id/ordinal_number"
+        android:enabled="false"
+        android:text="Al-Fatihah"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2CA4AB"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/latin_arabic"
+        android:layout_alignStart="@+id/latin_arabic"
+        android:layout_below="@+id/latin_arabic"
+        android:layout_marginTop="2dp"
+        android:text="THE OPENER"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#2CA4AB"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false" />
+
+    <TextView
+        android:id="@+id/arabic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:text="الفاتحة"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#2CA4AB" />
+</RelativeLayout>

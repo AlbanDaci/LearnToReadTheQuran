@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tumblr.albandaci.learntoreadthequran">
+
+    // check Allah and punctuation spaces (done)
+    // lock screen for menu or create a new layout for landscape view (done)
+    // change text above surahs in toolbar (done)
+    // toast on audio that says download the premium version if you want to listen (done)
+    // change icon or icon's color (done but meh)
+    // change background and icon in menu (done)
+    // how to lock rotation in tablet view only or only in one page (done)
+    // ask reddit what to do with the rate button (done)
+    // fix haa hhaa ha... etc (done) fix kha (short vowels I) and la (short vowels IV) (done)
+    // add tips and notes to some lessons or a completely new page instead of settings (done)
+    // use the internet to play the audio in the quran because it takes too much space otherwise (done)
+
+    // remove toolbar in menu (nope)
+    // add border in recyclerview (turns out you can't)
+    // add special layout for tablet (or not)
+    // change buttons in menu to recyclerview if possible (nope)
+    // stop audio when you click on the play button for the second time or when you click another audio button (yeah.. it crashes when you fo that)
+    // add icons in recyclerView or maybe cardView (no need for this)
+    // download android market (or not, who cares)
+
+    // admob?, how fast does money arrive to your account and how long until you start to actually make money
+    // extra space for adds below the app?
+    // avoid copyright from quran.com change translation of surah titles and other aspects of the design such as color
+    // google everything you need to know before releasing the app (udacity admob video etc)
+    // proofread everything before release (text, number of surahs/ayahs)
+    // fix uf (sukuun III) and ful (sukuun IV) and kathura (basic words IV) and qaaimun/qaailun order (Definites/Definites Plural) and sad/saad 38 and qaf/qaaf 50 and taha
+    // find out how much space the app takes
+    // make arabic font bigger in quran (done) but for screenshots make it 30sp so you can use ali-imran
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Quran"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <activity android:name=".Quran"
+            android:label="Quran">
+            <intent-filter>
+                <action android:name="com.tumblr.albandaci.learntoreadthequran.Quran" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".LearnToRead"
+            android:label="Learn To Read">
+            <intent-filter>
+                <action android:name="com.tumblr.albandaci.learntoreadthequran.LearnToRead" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".Menu"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".Tips"
+            android:label="Tips And Notes">
+            <intent-filter>
+                <action android:name="com.tumblr.albandaci.learntoreadthequran.Tips" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".Surahs.Al_Fatihah" android:label="Al-Fatihah"/>
+
+        <activity android:name=".Surahs.Al_Baqarah" android:label="Al-Baqarah"/>
+
+        <activity android:name=".Surahs.Ali_Imran" android:label="Ali-'Imran"/>
+
+        <activity android:name=".Surahs.An_Nisa" android:label="An-Nisa"/>
+
+        <activity android:name=".Surahs.Al_Maidah" android:label="Al-Ma'idah"/>
+
+        <activity android:name=".Surahs.Al_Anam" android:label="Al-An'am"/>
+
+        <activity android:name=".Surahs.Al_Araf" android:label="Al-A'raf"/>
+
+        <activity android:name=".Surahs.Al_Anfal" android:label="Al-Anfal"/>
+
+        <activity android:name=".Surahs.At_Tawbah" android:label="At-Tawbah"/>
+
+        <activity android:name=".Surahs.Yunus" android:label="Yunus"/>
+
+        <activity android:name=".Surahs.Hud" android:label="Hud"/>
+
+        <activity android:name=".Surahs.Yusuf" android:label="Yusuf"/>
+
+        <activity android:name=".Surahs.Ar_Rad" android:label="Ar-Ra'd"/>
+
+        <activity android:name=".Surahs.Ibrahim" android:label="Ibrahim"/>
+
+        <activity android:name=".Surahs.Al_Hijr" android:label="Al-Hijr"/>
+
+        <activity android:name=".Surahs.An_Nahl" android:label="An-Nahl"/>
+
+        <activity android:name=".Surahs.Al_Isra" android:label="Al-Isra"/>
+
+        <activity android:name=".Surahs.Al_Kahf" android:label="Al-Kahf"/>
+
+        <activity android:name=".Surahs.Maryam" android:label="Maryam"/>
+
+        <activity android:name=".Surahs.Taha" android:label="Taha"/>
+
+        <activity android:name=".Surahs.Al_Anbya" android:label="Al-Anbya"/>
+
+        <activity android:name=".Surahs.Al_Haj" android:label="Al-Haj"/>
+
+        <activity android:name=".Surahs.Al_Muminun" android:label="Al-Mu'minun"/>
+
+        <activity android:name=".Surahs.An_Nur" android:label="An-Nur"/>
+
+        <activity android:name=".Surahs.Al_Furqan" android:label="Al-Furqan"/>
+
+        <activity android:name=".Surahs.Ash_Shuara" android:label="Ash-Shu'ara"/>
+
+        <activity android:name=".Surahs.An_Naml" android:label="An-Naml"/>
+
+        <activity android:name=".Surahs.Al_Qasas" android:label="Al-Qasas"/>
+
+        <activity android:name=".Surahs.Al_Ankabut" android:label="Al-'Ankabut"/>
+
+        <activity android:name=".Surahs.Ar_Rum" android:label="Ar-Rum"/>
+
+        <activity android:name=".Surahs.Luqman" android:label="Luqman"/>
+
+        <activity android:name=".Surahs.As_Sajdah" android:label="As-Sajdah"/>
+
+        <activity android:name=".Surahs.Al_Ahzab" android:label="Al-Ahzab"/>
+
+        <activity android:name=".Surahs.Saba" android:label="Saba"/>
+
+        <activity android:name=".Surahs.Fatir" android:label="Fatir"/>
+
+        <activity android:name=".Surahs.Ya_Sin" android:label="Ya-Sin"/>
+
+        <activity android:name=".Surahs.As_Saffat" android:label="As-Saffat"/>
+
+        <activity android:name=".Surahs.Sad" android:label="Sad"/>
+
+        <activity android:name=".Surahs.Az_Zumar" android:label="Az-Zumar"/>
+
+        <activity android:name=".Surahs.Ghafir" android:label="Ghafir"/>
+
+        <activity android:name=".Surahs.Fussilat" android:label="Fussilat"/>
+
+        <activity android:name=".Surahs.Ash_Shuraa" android:label="Ash-Shuraa"/>
+
+        <activity android:name=".Surahs.Az_Zukhruf" android:label="Az-Zukhruf"/>
+
+        <activity android:name=".Surahs.Ad_Dukhan" android:label="Ad-Dukhan"/>
+
+        <activity android:name=".Surahs.Al_Jathiyah" android:label="Al-Jathiyah"/>
+
+        <activity android:name=".Surahs.Al_Ahqaf" android:label="Al-Ahqaf"/>
+
+        <activity android:name=".Surahs.Muhammad" android:label="Muhammad"/>
+
+        <activity android:name=".Surahs.Al_Fath" android:label="Al-Fath"/>
+
+        <activity android:name=".Surahs.Al_Hujurat" android:label="Al-Hujurat"/>
+
+        <activity android:name=".Surahs.Qaf" android:label="Qaf"/>
+
+        <activity android:name=".Surahs.Adh_Dhariyat" android:label="Adh-Dhariyat"/>
+
+        <activity android:name=".Surahs.At_Tur" android:label="At-Tur"/>
+
+        <activity android:name=".Surahs.An_Najm" android:label="An-Najm"/>
+
+        <activity android:name=".Surahs.Al_Qamar" android:label="Al-Qamar"/>
+
+        <activity android:name=".Surahs.Ar_Rahman" android:label="Ar-Rahman"/>
+
+        <activity android:name=".Surahs.Al_Waqiah" android:label="Al-Waqi'ah"/>
+
+        <activity android:name=".Surahs.Al_Hadid" android:label="Al-Hadid"/>
+
+        <activity android:name=".Surahs.Al_Mujadila" android:label="Al-Mujadila"/>
+
+        <activity android:name=".Surahs.Al_Hashr" android:label="Al-Hashr"/>
+
+        <activity android:name=".Surahs.Al_Mumtahanah" android:label="Al-Mumtahanah"/>
+
+        <activity android:name=".Surahs.As_Saf" android:label="As-Saf"/>
+
+        <activity android:name=".Surahs.Al_Jumuah" android:label="Al-Jumu'ah"/>
+
+        <activity android:name=".Surahs.Al_Munafiqun" android:label="Al-Munafiqun"/>
+
+        <activity android:name=".Surahs.At_Taghabun" android:label="At-Taghabun"/>
+
+        <activity android:name=".Surahs.At_Talaq" android:label="At-Talaq"/>
+
+        <activity android:name=".Surahs.At_Tahrim" android:label="At-Tahrim"/>
+
+        <activity android:name=".Surahs.Al_Mulk" android:label="Al-Mulk"/>
+
+        <activity android:name=".Surahs.Al_Qalam" android:label="Al-Qalam"/>
+
+        <activity android:name=".Surahs.Al_Haqqah" android:label="Al-Haqqah"/>
+
+        <activity android:name=".Surahs.Al_Maarij" android:label="Al-Ma'arij"/>
+
+        <activity android:name=".Surahs.Nuh" android:label="Nuh"/>
+
+        <activity android:name=".Surahs.Al_Jinn" android:label="Al-Jinn"/>
+
+        <activity android:name=".Surahs.Al_Muzzammil" android:label="Al-Muzzammil"/>
+
+        <activity android:name=".Surahs.Al_Muddaththir" android:label="Al-Muddaththir"/>
+
+        <activity android:name=".Surahs.Al_Qiyamah" android:label="Al-Qiyamah"/>
+
+        <activity android:name=".Surahs.Al_Insan" android:label="Al-Insan"/>
+
+        <activity android:name=".Surahs.Al_Mursalat" android:label="Al-Mursalat"/>
+
+        <activity android:name=".Surahs.An_Naba" android:label="An-Naba"/>
+
+        <activity android:name=".Surahs.An_Naziat" android:label="An-Nazi'at"/>
+
+        <activity android:name=".Surahs.Abasa" android:label="'Abasa"/>
+
+        <activity android:name=".Surahs.At_Takwir" android:label="At-Takwir"/>
+
+        <activity android:name=".Surahs.Al_Infitar" android:label="Al-Infitar"/>
+
+        <activity android:name=".Surahs.Al_Mutaffifin" android:label="Al-Mutaffifin"/>
+
+        <activity android:name=".Surahs.Al_Inshiqaq" android:label="Al-Inshiqaq"/>
+
+        <activity android:name=".Surahs.Al_Buruj" android:label="Al-Buruj"/>
+
+        <activity android:name=".Surahs.At_Tariq" android:label="At-Tariq"/>
+
+        <activity android:name=".Surahs.Al_Ala" android:label="Al-A'la"/>
+
+        <activity android:name=".Surahs.Al_Ghashiyah" android:label="Al-Ghashiyah"/>
+
+        <activity android:name=".Surahs.Al_Fajr" android:label="Al-Fajr"/>
+
+        <activity android:name=".Surahs.Al_Balad" android:label="Al-Balad"/>
+
+        <activity android:name=".Surahs.Ash_Shams" android:label="Ash-Shams"/>
+
+        <activity android:name=".Surahs.Al_Layl" android:label="Al-Layl"/>
+
+        <activity android:name=".Surahs.Ad_Duhaa" android:label="Ad-Duhaa"/>
+
+        <activity android:name=".Surahs.Ash_Sharh" android:label="Ash-Sharh"/>
+
+        <activity android:name=".Surahs.At_Tin" android:label="At-Tin"/>
+
+        <activity android:name=".Surahs.Al_Alaq" android:label="Al-'Alaq"/>
+
+        <activity android:name=".Surahs.Al_Qadr" android:label="Al-Qadr"/>
+
+        <activity android:name=".Surahs.Al_Bayyinah" android:label="Al-Bayyinah"/>
+
+        <activity android:name=".Surahs.Az_Zalzalah" android:label="Az-Zalzalah"/>
+
+        <activity android:name=".Surahs.Al_Adiyat" android:label="Al-'Adiyat"/>
+
+        <activity android:name=".Surahs.Al_Qariah" android:label="Al-Qari'ah"/>
+
+        <activity android:name=".Surahs.At_Takathur" android:label="At-Takathur"/>
+
+        <activity android:name=".Surahs.Al_Asr" android:label="Al-'Asr"/>
+
+        <activity android:name=".Surahs.Al_Humazah" android:label="Al-Humazah"/>
+
+        <activity android:name=".Surahs.Al_Fil" android:label="Al-Fil"/>
+
+        <activity android:name=".Surahs.Quraysh" android:label="Quraysh"/>
+
+        <activity android:name=".Surahs.Al_Maun" android:label="Al-Ma'un"/>
+
+        <activity android:name=".Surahs.Al_Kawthar" android:label="Al-Kawthar"/>
+
+        <activity android:name=".Surahs.Al_Kafirun" android:label="Al-Kafirun"/>
+
+        <activity android:name=".Surahs.An_Nasr" android:label="An-Nasr"/>
+
+        <activity android:name=".Surahs.Al_Masad" android:label="Al-Masad"/>
+
+        <activity android:name=".Surahs.Al_Ikhlas" android:label="Al-Ikhlas"/>
+
+        <activity android:name=".Surahs.Al_Falaq" android:label="Al-Falaq"/>
+
+        <activity android:name=".Surahs.An_Nas" android:label="An-Nas"/>
+
+        <activity android:name=".LearnToReadPackage.Alphabet_Single" android:label="Alphabet (Single)"/>
+
+        <activity android:name=".LearnToReadPackage.Alphabet_Initial" android:label="Alphabet (Initial)"/>
+
+        <activity android:name=".LearnToReadPackage.Alphabet_Middle" android:label="Alphabet (Middle)"/>
+
+        <activity android:name=".LearnToReadPackage.Alphabet_End" android:label="Alphabet (End)"/>
+
+        <activity android:name=".LearnToReadPackage.Short_Vowels_I" android:label="Short Vowels (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Short_Vowels_II" android:label="Short Vowels (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Short_Vowels_III" android:label="Short Vowels (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Short_Vowels_IV" android:label="Short Vowels (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Long_Vowels_I" android:label="Long Vowels (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Long_Vowels_II" android:label="Long Vowels (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Long_Vowels_III" android:label="Long Vowels (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Long_Vowels_IV" android:label="Long Vowels (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Sukuun_I" android:label="Sukuun (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Sukuun_II" android:label="Sukuun (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Sukuun_III" android:label="Sukuun (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Sukuun_IV" android:label="Sukuun (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Basic_Words_I" android:label="Basic Words (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Basic_Words_II" android:label="Basic Words (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Basic_Words_III" android:label="Basic Words (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Basic_Words_IV" android:label="Basic Words (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Intermediate_Words_I" android:label="Intermediate Words (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Intermediate_Words_II" android:label="Intermediate Words (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Intermediate_Words_III" android:label="Intermediate Words (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Intermediate_Words_IV" android:label="Intermediate Words (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Advanced_Words_I" android:label="Advanced Words (I)"/>
+
+        <activity android:name=".LearnToReadPackage.Advanced_Words_II" android:label="Advanced Words (II)"/>
+
+        <activity android:name=".LearnToReadPackage.Advanced_Words_III" android:label="Advanced Words (III)"/>
+
+        <activity android:name=".LearnToReadPackage.Advanced_Words_IV" android:label="Advanced Words (IV)"/>
+
+        <activity android:name=".LearnToReadPackage.Indefinites_Nominative" android:label="Indefinites (Nominative)"/>
+
+        <activity android:name=".LearnToReadPackage.Indefinites_Accusative" android:label="Indefinites (Accusative)"/>
+
+        <activity android:name=".LearnToReadPackage.Indefinites_Genitive" android:label="Indefinites (Genitive)"/>
+
+        <activity android:name=".LearnToReadPackage.Definites" android:label="Definites"/>
+
+        <activity android:name=".LearnToReadPackage.Definites_Plural" android:label="Definites (Plural)"/>
+
+    </application>
+
+</manifest>
