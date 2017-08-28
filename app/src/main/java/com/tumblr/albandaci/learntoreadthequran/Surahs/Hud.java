@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -25,7 +27,7 @@ public class Hud extends AppCompatActivity {
             "11:65", "11:66", "11:67", "11:68", "11:69", "11:70", "11:71", "11:72", "11:73", "11:74", "11:75", "11:76", "11:77", "11:78", "11:79", "11:80",
             "11:81", "11:82", "11:83", "11:84", "11:85", "11:86", "11:87", "11:88", "11:89", "11:90", "11:91", "11:92", "11:93", "11:94", "11:95", "11:96",
             "11:97", "11:98", "11:99", "11:100", "11:101", "11:102", "11:103", "11:104", "11:105", "11:106", "11:107", "11:108", "11:109", "11:110", "11:111", "11:112",
-            "11:113", "11:114", "11:115", "11:116", "11:117", "11:118", "11:119", "11:120", "11:121", "11:122", "11:123"};
+            "11:113", "11:114", "11:115", "11:116", "11:117", "11:118", "11:119", "11:120", "11:121", "11:122", "11:123", ""};
 
     String [] arabic_verses = {"الر ۚ كِتَابٌ أُحْكِمَتْ آيَاتُهُ ثُمَّ فُصِّلَتْ مِن لَّدُنْ حَكِيمٍ خَبِيرٍ",
     "أَلَّا تَعْبُدُوا إِلَّا اللَّهَ ۚ إِنَّنِي لَكُم مِّنْهُ نَذِيرٌ وَبَشِيرٌ",
@@ -149,7 +151,8 @@ public class Hud extends AppCompatActivity {
     "وَكُلًّا نَّقُصُّ عَلَيْكَ مِنْ أَنبَاءِ الرُّسُلِ مَا نُثَبِّتُ بِهِ فُؤَادَكَ ۚ وَجَاءَكَ فِي هَٰذِهِ الْحَقُّ وَمَوْعِظَةٌ وَذِكْرَىٰ لِلْمُؤْمِنِينَ",
     "وَقُل لِّلَّذِينَ لَا يُؤْمِنُونَ اعْمَلُوا عَلَىٰ مَكَانَتِكُمْ إِنَّا عَامِلُونَ",
     "وَانتَظِرُوا إِنَّا مُنتَظِرُونَ",
-    "وَلِلَّهِ غَيْبُ السَّمَاوَاتِ وَالْأَرْضِ وَإِلَيْهِ يُرْجَعُ الْأَمْرُ كُلُّهُ فَاعْبُدْهُ وَتَوَكَّلْ عَلَيْهِ ۚ وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ"};
+    "وَلِلَّهِ غَيْبُ السَّمَاوَاتِ وَالْأَرْضِ وَإِلَيْهِ يُرْجَعُ الْأَمْرُ كُلُّهُ فَاعْبُدْهُ وَتَوَكَّلْ عَلَيْهِ ۚ وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -163,7 +166,7 @@ public class Hud extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Ra. [This is] a Book whose verses are perfected and then presented in detail from [one who is] Wise and Acquainted.",
     "[Through a messenger, saying], \"Do not worship except Allah. Indeed, I am to you from Him a warner and a bringer of good tidings,\"",
@@ -287,7 +290,8 @@ public class Hud extends AppCompatActivity {
     "And each [story] We relate to you from the news of the messengers is that by which We make firm your heart. And there has come to you, in this, the truth and an instruction and a reminder for the believers.",
     "And say to those who do not believe, \"Work according to your position; indeed, we are working.",
     "And wait, indeed, we are waiting.\"",
-    "And to Allah belong the unseen [aspects] of the heavens and the earth and to Him will be returned the matter, all of it, so worship Him and rely upon Him. And your Lord is not unaware of that which you do."};
+    "And to Allah belong the unseen [aspects] of the heavens and the earth and to Him will be returned the matter, all of it, so worship Him and rely upon Him. And your Lord is not unaware of that which you do.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,6 +303,9 @@ public class Hud extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -22,7 +24,7 @@ public class Al_Furqan extends AppCompatActivity {
             "25:17", "25:18", "25:19", "25:20", "25:21", "25:22", "25:23", "25:24", "25:25", "25:26", "25:27", "25:28", "25:29", "25:30", "25:31", "25:32",
             "25:33", "25:34", "25:35", "25:36", "25:37", "25:38", "25:39", "25:40", "25:41", "25:42", "25:43", "25:44", "25:45", "25:46", "25:47", "25:48",
             "25:49", "25:50", "25:51", "25:52", "25:53", "25:54", "25:55", "25:56", "25:57", "25:58", "25:59", "25:60", "25:61", "25:62", "25:63", "25:64",
-            "25:65", "25:66", "25:67", "25:68", "25:69", "25:70", "25:71", "25:72", "25:73", "25:74", "25:75", "25:76", "25:77"};
+            "25:65", "25:66", "25:67", "25:68", "25:69", "25:70", "25:71", "25:72", "25:73", "25:74", "25:75", "25:76", "25:77", ""};
 
     String [] arabic_verses = {"تَبَارَكَ الَّذِي نَزَّلَ الْفُرْقَانَ عَلَىٰ عَبْدِهِ لِيَكُونَ لِلْعَالَمِينَ نَذِيرًا",
     "الَّذِي لَهُ مُلْكُ السَّمَاوَاتِ وَالْأَرْضِ وَلَمْ يَتَّخِذْ وَلَدًا وَلَمْ يَكُن لَّهُ شَرِيكٌ فِي الْمُلْكِ وَخَلَقَ كُلَّ شَيْءٍ فَقَدَّرَهُ تَقْدِيرًا",
@@ -100,7 +102,8 @@ public class Al_Furqan extends AppCompatActivity {
     "وَالَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
     "أُولَٰئِكَ يُجْزَوْنَ الْغُرْفَةَ بِمَا صَبَرُوا وَيُلَقَّوْنَ فِيهَا تَحِيَّةً وَسَلَامًا",
     "خَالِدِينَ فِيهَا ۚ حَسُنَتْ مُسْتَقَرًّا وَمُقَامًا",
-    "قُلْ مَا يَعْبَأُ بِكُمْ رَبِّي لَوْلَا دُعَاؤُكُمْ ۖ فَقَدْ كَذَّبْتُمْ فَسَوْفَ يَكُونُ لِزَامًا"};
+    "قُلْ مَا يَعْبَأُ بِكُمْ رَبِّي لَوْلَا دُعَاؤُكُمْ ۖ فَقَدْ كَذَّبْتُمْ فَسَوْفَ يَكُونُ لِزَامًا",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -109,7 +112,7 @@ public class Al_Furqan extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Blessed is He who sent down the Criterion upon His Servant that he may be to the worlds a warner -",
     "He to whom belongs the dominion of the heavens and the earth and who has not taken a son and has not had a partner in dominion and has created each thing and determined it with [precise] determination.",
@@ -187,7 +190,8 @@ public class Al_Furqan extends AppCompatActivity {
     "And those who say, \"Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous.\"",
     "Those will be awarded the Chamber for what they patiently endured, and they will be received therein with greetings and [words of] peace.",
     "Abiding eternally therein. Good is the settlement and residence.",
-    "Say, \"What would my Lord care for you if not for your supplication?\" For you [disbelievers] have denied, so your denial is going to be adherent."};
+    "Say, \"What would my Lord care for you if not for your supplication?\" For you [disbelievers] have denied, so your denial is going to be adherent.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +203,9 @@ public class Al_Furqan extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

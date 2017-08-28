@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -23,7 +25,7 @@ public class Sad extends AppCompatActivity {
             "38:33", "38:34", "38:35", "38:36", "38:37", "38:38", "38:39", "38:40", "38:41", "38:42", "38:43", "38:44", "38:45", "38:46", "38:47", "38:48",
             "38:49", "38:50", "38:51", "38:52", "38:53", "38:54", "38:55", "38:56", "38:57", "38:58", "38:59", "38:60", "38:61", "38:62", "38:63", "38:64",
             "38:65", "38:66", "38:67", "38:68", "38:69", "38:70", "38:71", "38:72", "38:73", "38:74", "38:75", "38:76", "38:77", "38:78", "38:79", "38:80",
-            "38:81", "38:82", "38:83", "38:84", "38:85", "38:86", "38:87", "38:88"};
+            "38:81", "38:82", "38:83", "38:84", "38:85", "38:86", "38:87", "38:88", ""};
 
     String [] arabic_verses = {"ص ۚ وَالْقُرْآنِ ذِي الذِّكْرِ",
     "بَلِ الَّذِينَ كَفَرُوا فِي عِزَّةٍ وَشِقَاقٍ",
@@ -112,7 +114,8 @@ public class Sad extends AppCompatActivity {
     "لَأَمْلَأَنَّ جَهَنَّمَ مِنكَ وَمِمَّن تَبِعَكَ مِنْهُمْ أَجْمَعِينَ",
     "قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ",
     "إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ",
-    "وَلَتَعْلَمُنَّ نَبَأَهُ بَعْدَ حِينٍ"};
+    "وَلَتَعْلَمُنَّ نَبَأَهُ بَعْدَ حِينٍ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -122,7 +125,7 @@ public class Sad extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Sad. By the Qur'an containing reminder...",
     "But those who disbelieve are in pride and dissension.",
@@ -211,7 +214,8 @@ public class Sad extends AppCompatActivity {
     "[That] I will surely fill Hell with you and those of them that follow you all together.\"",
     "Say, [O Muhammad], \"I do not ask you for the Qur'an any payment, and I am not of the pretentious",
     "It is but a reminder to the worlds.",
-    "And you will surely know [the truth of] its information after a time.\""};
+    "And you will surely know [the truth of] its information after a time.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -223,6 +227,9 @@ public class Sad extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

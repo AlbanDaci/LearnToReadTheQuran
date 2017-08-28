@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -22,7 +24,7 @@ public class Al_Ankabut extends AppCompatActivity {
             "29:17", "29:18", "29:19", "29:20", "29:21", "29:22", "29:23", "29:24", "29:25", "29:26", "29:27", "29:28", "29:29", "29:30", "29:31", "29:32",
             "29:33", "29:34", "29:35", "29:36", "29:37", "29:38", "29:39", "29:40", "29:41", "29:42", "29:43", "29:44", "29:45", "29:46", "29:47", "29:48",
             "29:49", "29:50", "29:51", "29:52", "29:53", "29:54", "29:55", "29:56", "29:57", "29:58", "29:59", "29:60", "29:61", "29:62", "29:63", "29:64",
-            "29:65", "29:66", "29:67", "29:68", "29:69"};
+            "29:65", "29:66", "29:67", "29:68", "29:69", ""};
 
     String [] arabic_verses = {"الم",
     "أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ",
@@ -92,7 +94,8 @@ public class Al_Ankabut extends AppCompatActivity {
     "لِيَكْفُرُوا بِمَا آتَيْنَاهُمْ وَلِيَتَمَتَّعُوا ۖ فَسَوْفَ يَعْلَمُونَ",
     "أَوَلَمْ يَرَوْا أَنَّا جَعَلْنَا حَرَمًا آمِنًا وَيُتَخَطَّفُ النَّاسُ مِنْ حَوْلِهِمْ ۚ أَفَبِالْبَاطِلِ يُؤْمِنُونَ وَبِنِعْمَةِ اللَّهِ يَكْفُرُونَ",
     "وَمَنْ أَظْلَمُ مِمَّنِ افْتَرَىٰ عَلَى اللَّهِ كَذِبًا أَوْ كَذَّبَ بِالْحَقِّ لَمَّا جَاءَهُ ۚ أَلَيْسَ فِي جَهَنَّمَ مَثْوًى لِّلْكَافِرِينَ",
-    "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ"};
+    "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -100,7 +103,7 @@ public class Al_Ankabut extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Meem.",
     "Do the people think that they will be left to say, \"We believe\" and they will not be tried?",
@@ -170,7 +173,8 @@ public class Al_Ankabut extends AppCompatActivity {
     "So that they will deny what We have granted them, and they will enjoy themselves. But they are going to know.",
     "Have they not seen that We made [Makkah] a safe sanctuary, while people are being taken away all around them? Then in falsehood do they believe, and in the favor of Allah they disbelieve?",
     "And who is more unjust than one who invents a lie about Allah or denies the truth when it has come to him? Is there not in Hell a [sufficient] residence for the disbelievers?",
-    "And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good."};
+    "And those who strive for Us - We will surely guide them to Our ways. And indeed, Allah is with the doers of good.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +186,9 @@ public class Al_Ankabut extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

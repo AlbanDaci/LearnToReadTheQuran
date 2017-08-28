@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Ad_Dukhan extends AppCompatActivity {
     String [] verses = {"44:1", "44:2", "44:3", "44:4", "44:5", "44:6", "44:7", "44:8", "44:9", "44:10", "44:11", "44:12", "44:13", "44:14", "44:15", "44:16",
             "44:17", "44:18", "44:19", "44:20", "44:21", "44:22", "44:23", "44:24", "44:25", "44:26", "44:27", "44:28", "44:29", "44:30", "44:31", "44:32",
             "44:33", "44:34", "44:35", "44:36", "44:37", "44:38", "44:39", "44:40", "44:41", "44:42", "44:43", "44:44", "44:45", "44:46", "44:47", "44:48",
-            "44:49", "44:50", "44:51", "44:52", "44:53", "44:54", "44:55", "44:56", "44:57", "44:58", "44:59"};
+            "44:49", "44:50", "44:51", "44:52", "44:53", "44:54", "44:55", "44:56", "44:57", "44:58", "44:59", ""};
 
     String [] arabic_verses = {"حم",
     "وَالْكِتَابِ الْمُبِينِ",
@@ -81,14 +83,15 @@ public class Ad_Dukhan extends AppCompatActivity {
     "لَا يَذُوقُونَ فِيهَا الْمَوْتَ إِلَّا الْمَوْتَةَ الْأُولَىٰ ۖ وَوَقَاهُمْ عَذَابَ الْجَحِيمِ",
     "فَضْلًا مِّن رَّبِّكَ ۚ ذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ",
     "فَإِنَّمَا يَسَّرْنَاهُ بِلِسَانِكَ لَعَلَّهُمْ يَتَذَكَّرُونَ",
-    "فَارْتَقِبْ إِنَّهُم مُّرْتَقِبُونَ"};
+    "فَارْتَقِبْ إِنَّهُم مُّرْتَقِبُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Ha, Meem.",
     "By the clear Book,",
@@ -148,7 +151,8 @@ public class Ad_Dukhan extends AppCompatActivity {
     "They will not taste death therein except the first death, and He will have protected them from the punishment of Hellfire",
     "As bounty from your Lord. That is what is the great attainment.",
     "And indeed, We have eased the Qur'an in your tongue that they might be reminded.",
-    "So watch, [O Muhammad]; indeed, they are watching [for your end]."};
+    "So watch, [O Muhammad]; indeed, they are watching [for your end].",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +164,9 @@ public class Ad_Dukhan extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

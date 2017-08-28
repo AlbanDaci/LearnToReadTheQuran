@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class An_Najm extends AppCompatActivity {
     String [] verses = {"53:1", "53:2", "53:3", "53:4", "53:5", "53:6", "53:7", "53:8", "53:9", "53:10", "53:11", "53:12", "53:13", "53:14", "53:15", "53:16",
             "53:17", "53:18", "53:19", "53:20", "53:21", "53:22", "53:23", "53:24", "53:25", "53:26", "53:27", "53:28", "53:29", "53:30", "53:31", "53:32",
             "53:33", "53:34", "53:35", "53:36", "53:37", "53:38", "53:39", "53:40", "53:41", "53:42", "53:43", "53:44", "53:45", "53:46", "53:47", "53:48",
-            "53:49", "53:50", "53:51", "53:52", "53:53", "53:54", "53:55", "53:56", "53:57", "53:58", "53:59", "53:60", "53:61", "53:62"};
+            "53:49", "53:50", "53:51", "53:52", "53:53", "53:54", "53:55", "53:56", "53:57", "53:58", "53:59", "53:60", "53:61", "53:62", ""};
 
     String [] arabic_verses = {"وَالنَّجْمِ إِذَا هَوَىٰ",
     "مَا ضَلَّ صَاحِبُكُمْ وَمَا غَوَىٰ",
@@ -84,7 +86,8 @@ public class An_Najm extends AppCompatActivity {
     "أَفَمِنْ هَٰذَا الْحَدِيثِ تَعْجَبُونَ",
     "وَتَضْحَكُونَ وَلَا تَبْكُونَ",
     "وَأَنتُمْ سَامِدُونَ",
-    "فَاسْجُدُوا لِلَّهِ وَاعْبُدُوا ۩"};
+    "فَاسْجُدُوا لِلَّهِ وَاعْبُدُوا ۩",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -92,7 +95,7 @@ public class An_Najm extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the star when it descends,",
     "Your companion [Muhammad] has not strayed, nor has he erred,",
@@ -155,7 +158,8 @@ public class An_Najm extends AppCompatActivity {
     "Then at this statement do you wonder?",
     "And you laugh and do not weep",
     "While you are proudly sporting?",
-    "So prostrate to Allah and worship [Him]."};
+    "So prostrate to Allah and worship [Him].",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,6 +171,9 @@ public class An_Najm extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

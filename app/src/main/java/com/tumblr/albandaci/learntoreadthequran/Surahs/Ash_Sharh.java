@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class Ash_Sharh extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"94:1", "94:2", "94:3", "94:4", "94:5", "94:6", "94:7", "94:8"};
+    String [] verses  = {"94:1", "94:2", "94:3", "94:4", "94:5", "94:6", "94:7", "94:8", ""};
 
     String [] arabic_verses = {"أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",
     "وَوَضَعْنَا عَنكَ وِزْرَكَ",
@@ -27,9 +29,10 @@ public class Ash_Sharh extends AppCompatActivity {
     "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
     "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
     "فَإِذَا فَرَغْتَ فَانصَبْ",
-    "وَإِلَىٰ رَبِّكَ فَارْغَب"};
+    "وَإِلَىٰ رَبِّكَ فَارْغَب",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Did We not expand for you, [O Muhammad], your breast?",
     "And We removed from you your burden",
@@ -38,7 +41,8 @@ public class Ash_Sharh extends AppCompatActivity {
     "For indeed, with hardship [will be] ease.",
     "Indeed, with hardship [will be] ease.",
     "So when you have finished [your duties], then stand up [for worship].",
-    "And to your Lord direct [your] longing."};
+    "And to your Lord direct [your] longing.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,9 @@ public class Ash_Sharh extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

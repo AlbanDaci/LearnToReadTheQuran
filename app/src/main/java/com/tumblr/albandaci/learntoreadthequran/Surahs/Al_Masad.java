@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,21 +20,23 @@ public class Al_Masad extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"111:1", "111:2", "111:3", "111:4", "111:5"};
+    String [] verses  = {"111:1", "111:2", "111:3", "111:4", "111:5", ""};
 
     String [] arabic_verses = {"تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ",
     "مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ",
     "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ",
     "وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ",
-    "فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ"};
+    "فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"May the hands of Abu Lahab be ruined, and ruined is he.",
     "His wealth will not avail him or that which he gained.",
     "He will [enter to] burn in a Fire of [blazing] flame",
     "And his wife [as well] - the carrier of firewood.",
-    "Around her neck is a rope of [twisted] fiber."};
+    "Around her neck is a rope of [twisted] fiber.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class Al_Masad extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

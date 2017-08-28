@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class Abasa extends AppCompatActivity {
 
     String [] verses = {"80:1", "80:2", "80:3", "80:4", "80:5", "80:6", "80:7", "80:8", "80:9", "80:10", "80:11", "80:12", "80:13", "80:14", "80:15", "80:16",
             "80:17", "80:18", "80:19", "80:20", "80:21", "80:22", "80:23", "80:24", "80:25", "80:26", "80:27", "80:28", "80:29", "80:30", "80:31", "80:32",
-            "80:33", "80:34", "80:35", "80:36", "80:37", "80:38", "80:39", "80:40", "80:41", "80:42"};
+            "80:33", "80:34", "80:35", "80:36", "80:37", "80:38", "80:39", "80:40", "80:41", "80:42", ""};
 
     String [] arabic_verses = {"عَبَسَ وَتَوَلَّىٰ",
     "أَن جَاءَهُ الْأَعْمَىٰ",
@@ -63,13 +65,14 @@ public class Abasa extends AppCompatActivity {
     "ضَاحِكَةٌ مُّسْتَبْشِرَةٌ",
     "وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ",
     "تَرْهَقُهَا قَتَرَةٌ",
-    "أُولَٰئِكَ هُمُ الْكَفَرَةُ الْفَجَرَةُ"};
+    "أُولَٰئِكَ هُمُ الْكَفَرَةُ الْفَجَرَةُ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"The Prophet frowned and turned away",
     "Because there came to him the blind man, [interrupting].",
@@ -112,7 +115,8 @@ public class Abasa extends AppCompatActivity {
     "Laughing, rejoicing at good news.",
     "And [other] faces, that Day, will have upon them dust.",
     "Blackness will cover them.",
-    "Those are the disbelievers, the wicked ones."};
+    "Those are the disbelievers, the wicked ones.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +128,9 @@ public class Abasa extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

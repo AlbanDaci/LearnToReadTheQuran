@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,17 +20,19 @@ public class Al_Kawthar extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"108:1", "108:2", "108:3"};
+    String [] verses  = {"108:1", "108:2", "108:3", ""};
 
     String [] arabic_verses = {"إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ",
     "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
-    "إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ"};
+    "إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Indeed, We have granted you, [O Muhammad], al-Kawthar.",
     "So pray to your Lord and sacrifice [to Him alone].",
-    "Indeed, your enemy is the one cut off."};
+    "Indeed, your enemy is the one cut off.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,9 @@ public class Al_Kawthar extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

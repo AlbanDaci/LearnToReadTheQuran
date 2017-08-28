@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Alaq extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"96:1", "96:2", "96:3", "96:4", "96:5", "96:6", "96:7", "96:8", "96:9", "96:10", "96:11", "96:12", "96:13", "96:14", "96:15", "96:16",
-            "96:17", "96:18", "96:19"};
+            "96:17", "96:18", "96:19", ""};
 
     String [] arabic_verses = {"اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
     "خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ",
@@ -39,10 +41,11 @@ public class Al_Alaq extends AppCompatActivity {
     "نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ",
     "فَلْيَدْعُ نَادِيَهُ",
     "سَنَدْعُ الزَّبَانِيَةَ",
-    "كَلَّا لَا تُطِعْهُ وَاسْجُدْ وَاقْتَرِب ۩"};
+    "كَلَّا لَا تُطِعْهُ وَاسْجُدْ وَاقْتَرِب ۩",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Recite in the name of your Lord who created -",
     "Created man from a clinging substance.",
@@ -62,7 +65,8 @@ public class Al_Alaq extends AppCompatActivity {
     "A lying, sinning forelock.",
     "Then let him call his associates;",
     "We will call the angels of Hell.",
-    "No! Do not obey him. But prostrate and draw near [to Allah]."};
+    "No! Do not obey him. But prostrate and draw near [to Allah].",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,9 @@ public class Al_Alaq extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

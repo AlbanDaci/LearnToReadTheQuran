@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -23,7 +25,7 @@ public class Al_Waqiah extends AppCompatActivity {
             "56:33", "56:34", "56:35", "56:36", "56:37", "56:38", "56:39", "56:40", "56:41", "56:42", "56:43", "56:44", "56:45", "56:46", "56:47", "56:48",
             "56:49", "56:50", "56:51", "56:52", "56:53", "56:54", "56:55", "56:56", "56:57", "56:58", "56:59", "56:60", "56:61", "56:62", "56:63", "56:64",
             "56:65", "56:66", "56:67", "56:68", "56:69", "56:70", "56:71", "56:72", "56:73", "56:74", "56:75", "56:76", "56:77", "56:78", "56:79", "56:80",
-            "56:81", "56:82", "56:83", "56:84", "56:85", "56:86", "56:87", "56:88", "56:89", "56:90", "56:91", "56:92", "56:93", "56:94", "56:95", "56:96"};
+            "56:81", "56:82", "56:83", "56:84", "56:85", "56:86", "56:87", "56:88", "56:89", "56:90", "56:91", "56:92", "56:93", "56:94", "56:95", "56:96", ""};
 
     String [] arabic_verses = {"إِذَا وَقَعَتِ الْوَاقِعَةُ",
     "لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ",
@@ -120,7 +122,8 @@ public class Al_Waqiah extends AppCompatActivity {
     "فَنُزُلٌ مِّنْ حَمِيمٍ",
     "وَتَصْلِيَةُ جَحِيمٍ",
     "إِنَّ هَٰذَا لَهُوَ حَقُّ الْيَقِينِ",
-    "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ"};
+    "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -131,7 +134,7 @@ public class Al_Waqiah extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"When the Occurrence occurs,",
     "There is, at its occurrence, no denial.",
@@ -228,7 +231,8 @@ public class Al_Waqiah extends AppCompatActivity {
     "Then [for him is] accommodation of scalding water",
     "And burning in Hellfire",
     "Indeed, this is the true certainty,",
-    "So exalt the name of your Lord, the Most Great."};
+    "So exalt the name of your Lord, the Most Great.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,6 +244,9 @@ public class Al_Waqiah extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

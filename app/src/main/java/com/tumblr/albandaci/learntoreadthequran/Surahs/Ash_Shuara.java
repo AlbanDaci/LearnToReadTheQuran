@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -32,7 +34,7 @@ public class Ash_Shuara extends AppCompatActivity {
             "26:177", "26:178", "26:179", "26:180", "26:181", "26:182", "26:183", "26:184", "26:185", "26:186", "26:187", "26:188", "26:189", "26:190", "26:191", "26:192",
             "26:193", "26:194", "26:195", "26:196", "26:197", "26:198", "26:199", "26:200", "26:201", "26:202", "26:203", "26:204", "26:205", "26:206", "26:207", "26:208",
             "26:209", "26:210", "26:211", "26:212", "26:213", "26:214", "26:215", "26:216", "26:217", "26:218", "26:219", "26:220", "26:221", "26:222", "26:223", "26:224",
-            "26:225", "26:226", "26:227"};
+            "26:225", "26:226", "26:227", ""};
 
     String [] arabic_verses = {"طسم",
     "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ",
@@ -260,7 +262,8 @@ public class Ash_Shuara extends AppCompatActivity {
     "وَالشُّعَرَاءُ يَتَّبِعُهُمُ الْغَاوُونَ",
     "أَلَمْ تَرَ أَنَّهُمْ فِي كُلِّ وَادٍ يَهِيمُونَ",
     "وَأَنَّهُمْ يَقُولُونَ مَا لَا يَفْعَلُونَ",
-    "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللَّهَ كَثِيرًا وَانتَصَرُوا مِن بَعْدِ مَا ظُلِمُوا ۗ وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا أَيَّ مُنقَلَبٍ يَنقَلِبُونَ"};
+    "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللَّهَ كَثِيرًا وَانتَصَرُوا مِن بَعْدِ مَا ظُلِمُوا ۗ وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا أَيَّ مُنقَلَبٍ يَنقَلِبُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -284,7 +287,7 @@ public class Ash_Shuara extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Ta, Seen, Meem.",
     "These are the verses of the clear Book.",
@@ -512,7 +515,8 @@ public class Ash_Shuara extends AppCompatActivity {
     "And the poets - [only] the deviators follow them;",
     "Do you not see that in every valley they roam",
     "And that they say what they do not do? -",
-    "Except those [poets] who believe and do righteous deeds and remember Allah often and defend [the Muslims] after they were wronged. And those who have wronged are going to know to what [kind of] return they will be returned."};
+    "Except those [poets] who believe and do righteous deeds and remember Allah often and defend [the Muslims] after they were wronged. And those who have wronged are going to know to what [kind of] return they will be returned.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -524,6 +528,9 @@ public class Ash_Shuara extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

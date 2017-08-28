@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Quran extends AppCompatActivity {
 
 
@@ -19,7 +22,7 @@ public class Quran extends AppCompatActivity {
     "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73",
     "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92",
     "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110",
-    "111", "112", "113", "114"};
+    "111", "112", "113", "114", ""};
 
     String [] latin_arabic = {"Al-Fatihah", "Al-Baqarah", "Ali 'Imran", "An-Nisa", "Al-Ma'idah", "Al-An'am", "Al-A'raf",
     "Al-Anfal", "At-Tawbah", "Yunus", "Hud", "Yusuf", "Ar-Ra'd", "Ibrahim", "Al-Hijr", "An-Nahl", "Al-Isra", "Al-Kahf",
@@ -32,7 +35,7 @@ public class Quran extends AppCompatActivity {
     "An-Naba", "An-Nazi'at", "'Abasa", "At-Takwir", "Al-Infitar", "Al-Mutaffifin", "Al-Inshiqaq", "Al-Buruj", "At-Tariq",
     "Al-A'la", "Al-Ghashiyah", "Al-Fajr", "Al-Balad", "Ash-Shams", "Al-Layl", "Ad-Duhaa", "Ash-Sharh", "At-Tin", "Al-'Alaq",
     "Al-Qadr", "Al-Bayyinah", "Az-Zalzalah", "Al-'Adiyat", "Al-Qari'ah", "At-Takathur", "Al-'Asr", "Al-Humazah", "Al-Fil",
-    "Quraysh", "Al-Ma'un", "Al-Kawthar", "Al-Kafirun", "An-Nasr", "Al-Masad", "Al-Ikhlas", "Al-Falaq", "An-Nas"};
+    "Quraysh", "Al-Ma'un", "Al-Kawthar", "Al-Kafirun", "An-Nasr", "Al-Masad", "Al-Ikhlas", "Al-Falaq", "An-Nas", ""};
 
     String [] english = {"THE OPENER", "THE COW", "FAMILY OF IMRAN", "THE WOMEN", "THE TABLE SPREAD", "THE CATTLE",
     "THE HEIGHTS", "THE SPOILS OF WAR", "THE REPENTANCE", "JONAH", "HUD", "JOSEPH", "THE THUNDER", "ABRAHIM", "THE ROCKY TRACT",
@@ -49,7 +52,7 @@ public class Quran extends AppCompatActivity {
     "THE MOST HIGH", "THE OVERWHELMING", "THE DAWN", "THE CITY", "THE SUN", "THE NIGHT", "THE MORNING HOURS", "THE RELIEF", "THE FIG",
     "THE CLOT", "THE POWER", "THE CLEAR PROOF", "THE EARTHQUAKE", "THE COURSER", "THE CALAMITY", "THE RIVALRY IN WORLD INCREASE",
     "THE DECLINING DAY", "THE TRADUCER", "THE ELEPHANT", "QURAYSH", "THE SMALL KINDESSES", "THE ABUNDANCE", "THE DISBELIEVERS",
-    "THE DIVINE SUPPORT", "THE PALM FIBER", "THE SINCERITY", "THE DAYBREAK", "THE MANKIND"};
+    "THE DIVINE SUPPORT", "THE PALM FIBER", "THE SINCERITY", "THE DAYBREAK", "THE MANKIND", ""};
 
     String [] arabic = {"الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال",
     "التوبة", "يونس", "هود", "يوسف", "الرعد", "ابراهيم", "الحجر", " النحل", "الإسراء", "الكهف", "مريم", "طه", "الأنبياء",
@@ -60,7 +63,7 @@ public class Quran extends AppCompatActivity {
     "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الانسان", "المرسلات", "النبإ", "النازعات", "عبس", "التكوير", "الإنفطار",
     "المطففين", "الإنشقاق", " البروج", "الطارق", " الأعلى", "الغاشية", "الفجر", "البلد", "الشمس", " الليل", "الضحى", "الشرح",
     "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات", "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", " قريش",
-    "الماعون", " الكوثر", "الكافرون", "النصر", "المسد", "الإخلاص", "الفلق", "الناس"};
+    "الماعون", " الكوثر", "الكافرون", "النصر", "المسد", "الإخلاص", "الفلق", "الناس", ""};
 
 
     @Override
@@ -73,5 +76,8 @@ public class Quran extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

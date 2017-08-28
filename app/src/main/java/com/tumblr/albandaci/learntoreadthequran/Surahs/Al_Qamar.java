@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Al_Qamar extends AppCompatActivity {
     String [] verses = {"54:1", "54:2", "54:3", "54:4", "54:5", "54:6", "54:7", "54:8", "54:9", "54:10", "54:11", "54:12", "54:13", "54:14", "54:15", "54:16",
             "54:17", "54:18", "54:19", "54:20", "54:21", "54:22", "54:23", "54:24", "54:25", "54:26", "54:27", "54:28", "54:29", "54:30", "54:31", "54:32",
             "54:33", "54:34", "54:35", "54:36", "54:37", "54:38", "54:39", "54:40", "54:41", "54:42", "54:43", "54:44", "54:45", "54:46", "54:47", "54:48",
-            "54:49", "54:50", "54:51", "54:52", "54:53", "54:54", "54:55"};
+            "54:49", "54:50", "54:51", "54:52", "54:53", "54:54", "54:55", ""};
 
     String [] arabic_verses = {"اقْتَرَبَتِ السَّاعَةُ وَانشَقَّ الْقَمَرُ",
     "وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ",
@@ -77,14 +79,15 @@ public class Al_Qamar extends AppCompatActivity {
     "وَكُلُّ شَيْءٍ فَعَلُوهُ فِي الزُّبُرِ",
     "وَكُلُّ صَغِيرٍ وَكَبِيرٍ مُّسْتَطَرٌ",
     "إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَنَهَرٍ",
-    "فِي مَقْعَدِ صِدْقٍ عِندَ مَلِيكٍ مُّقْتَدِرٍ"};
+    "فِي مَقْعَدِ صِدْقٍ عِندَ مَلِيكٍ مُّقْتَدِرٍ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"The Hour has come near, and the moon has split [in two].",
     "And if they see a miracle, they turn away and say, \"Passing magic.\"",
@@ -140,7 +143,8 @@ public class Al_Qamar extends AppCompatActivity {
     "And everything they did is in written records.",
     "And every small and great [thing] is inscribed.",
     "Indeed, the righteous will be among gardens and rivers,",
-    "In a seat of honor near a Sovereign, Perfect in Ability."};
+    "In a seat of honor near a Sovereign, Perfect in Ability.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +156,9 @@ public class Al_Qamar extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

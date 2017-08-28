@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Al_Haqqah extends AppCompatActivity {
     String [] verses = {"69:1", "69:2", "69:3", "69:4", "69:5", "69:6", "69:7", "69:8", "69:9", "69:10", "69:11", "69:12", "69:13", "69:14", "69:15", "69:16",
             "69:17", "69:18", "69:19", "69:20", "69:21", "69:22", "69:23", "69:24", "69:25", "69:26", "69:27", "69:28", "69:29", "69:30", "69:31", "69:32",
             "69:33", "69:34", "69:35", "69:36", "69:37", "69:38", "69:39", "69:40", "69:41", "69:42", "69:43", "69:44", "69:45", "69:46", "69:47", "69:48",
-            "69:49", "69:50", "69:51", "69:52"};
+            "69:49", "69:50", "69:51", "69:52", ""};
 
     String [] arabic_verses = {"الْحَاقَّةُ",
     "مَا الْحَاقَّةُ",
@@ -74,14 +76,15 @@ public class Al_Haqqah extends AppCompatActivity {
     "وَإِنَّا لَنَعْلَمُ أَنَّ مِنكُم مُّكَذِّبِينَ",
     "وَإِنَّهُ لَحَسْرَةٌ عَلَى الْكَافِرِينَ",
     "وَإِنَّهُ لَحَقُّ الْيَقِينِ",
-    "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ"};
+    "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"The Inevitable Reality -",
     "What is the Inevitable Reality?",
@@ -134,7 +137,8 @@ public class Al_Haqqah extends AppCompatActivity {
     "And indeed, We know that among you are deniers.",
     "And indeed, it will be [a cause of] regret upon the disbelievers.",
     "And indeed, it is the truth of certainty.",
-    "So exalt the name of your Lord, the Most Great."};
+    "So exalt the name of your Lord, the Most Great.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +150,9 @@ public class Al_Haqqah extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

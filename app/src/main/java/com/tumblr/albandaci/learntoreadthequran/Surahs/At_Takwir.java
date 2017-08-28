@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class At_Takwir extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"81:1", "81:2", "81:3", "81:4", "81:5", "81:6", "81:7", "81:8", "81:9", "81:10", "81:11", "81:12", "81:13", "81:14", "81:15", "81:16",
-            "81:17", "81:18", "81:19", "81:20", "81:21", "81:22", "81:23", "81:24", "81:25", "81:26", "81:27", "81:28", "81:29"};
+            "81:17", "81:18", "81:19", "81:20", "81:21", "81:22", "81:23", "81:24", "81:25", "81:26", "81:27", "81:28", "81:29", ""};
 
     String [] arabic_verses = {"إِذَا الشَّمْسُ كُوِّرَتْ",
     "وَإِذَا النُّجُومُ انكَدَرَتْ",
@@ -49,11 +51,12 @@ public class At_Takwir extends AppCompatActivity {
     "فَأَيْنَ تَذْهَبُونَ",
     "إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ",
     "لِمَن شَاءَ مِنكُمْ أَن يَسْتَقِيمَ",
-    "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ"};
+    "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"When the sun is wrapped up [in darkness]",
     "And when the stars fall, dispersing,",
@@ -83,7 +86,8 @@ public class At_Takwir extends AppCompatActivity {
     "So where are you going?",
     "It is not except a reminder to the worlds",
     "For whoever wills among you to take a right course.",
-    "And you do not will except that Allah wills - Lord of the worlds."};
+    "And you do not will except that Allah wills - Lord of the worlds.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,9 @@ public class At_Takwir extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Layl extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"92:1", "92:2", "92:3", "92:4", "92:5", "92:6", "92:7", "92:8", "92:9", "92:10", "92:11", "92:12", "92:13", "92:14", "92:15", "92:16",
-            "92:17", "92:18", "92:19", "92:20", "92:21"};
+            "92:17", "92:18", "92:19", "92:20", "92:21", ""};
 
     String [] arabic_verses = {"وَاللَّيْلِ إِذَا يَغْشَىٰ",
     "وَالنَّهَارِ إِذَا تَجَلَّىٰ",
@@ -41,11 +43,12 @@ public class Al_Layl extends AppCompatActivity {
     "الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّىٰ",
     "وَمَا لِأَحَدٍ عِندَهُ مِن نِّعْمَةٍ تُجْزَىٰ",
     "إِلَّا ابْتِغَاءَ وَجْهِ رَبِّهِ الْأَعْلَىٰ",
-    "وَلَسَوْفَ يَرْضَىٰ"};
+    "وَلَسَوْفَ يَرْضَىٰ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International"};
+            "Sahih International", ""};
 
     String [] english_verses = {"By the night when it covers",
     "And [by] the day when it appears",
@@ -67,7 +70,8 @@ public class Al_Layl extends AppCompatActivity {
     "[He] who gives [from] his wealth to purify himself",
     "And not [giving] for anyone who has [done him] a favor to be rewarded",
     "But only seeking the countenance of his Lord, Most High.",
-    "And he is going to be satisfied."};
+    "And he is going to be satisfied.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +83,9 @@ public class Al_Layl extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

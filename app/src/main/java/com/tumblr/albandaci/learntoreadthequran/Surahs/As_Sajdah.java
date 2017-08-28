@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class As_Sajdah extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses = {"32:1", "32:2", "32:3", "32:4", "32:5", "32:6", "32:7", "32:8", "32:9", "32:10", "32:11", "32:12", "32:13", "32:14", "32:15", "32:16",
-            "32:17", "32:18", "32:19", "32:20", "32:21", "32:22", "32:23", "32:24", "32:25", "32:26", "32:27", "32:28", "32:29", "32:30"};
+            "32:17", "32:18", "32:19", "32:20", "32:21", "32:22", "32:23", "32:24", "32:25", "32:26", "32:27", "32:28", "32:29", "32:30", ""};
 
     String [] arabic_verses = {"الم",
     "تَنزِيلُ الْكِتَابِ لَا رَيْبَ فِيهِ مِن رَّبِّ الْعَالَمِينَ",
@@ -50,11 +52,12 @@ public class As_Sajdah extends AppCompatActivity {
     "أَوَلَمْ يَرَوْا أَنَّا نَسُوقُ الْمَاءَ إِلَى الْأَرْضِ الْجُرُزِ فَنُخْرِجُ بِهِ زَرْعًا تَأْكُلُ مِنْهُ أَنْعَامُهُمْ وَأَنفُسُهُمْ ۖ أَفَلَا يُبْصِرُونَ",
     "وَيَقُولُونَ مَتَىٰ هَٰذَا الْفَتْحُ إِن كُنتُمْ صَادِقِينَ",
     "قُلْ يَوْمَ الْفَتْحِ لَا يَنفَعُ الَّذِينَ كَفَرُوا إِيمَانُهُمْ وَلَا هُمْ يُنظَرُونَ",
-    "فَأَعْرِضْ عَنْهُمْ وَانتَظِرْ إِنَّهُم مُّنتَظِرُونَ"};
+    "فَأَعْرِضْ عَنْهُمْ وَانتَظِرْ إِنَّهُم مُّنتَظِرُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Meem.",
     "[This is] the revelation of the Book about which there is no doubt from the Lord of the worlds.",
@@ -85,7 +88,8 @@ public class As_Sajdah extends AppCompatActivity {
     "Have they not seen that We drive the water [in clouds] to barren land and bring forth thereby crops from which their livestock eat and [they] themselves? Then do they not see?",
     "And they say, \"When will be this conquest, if you should be truthful?\"",
     "Say, [O Muhammad], \"On the Day of Conquest the belief of those who had disbelieved will not benefit them, nor will they be reprieved.\"",
-    "So turn away from them and wait. Indeed, they are waiting."};
+    "So turn away from them and wait. Indeed, they are waiting.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,9 @@ public class As_Sajdah extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

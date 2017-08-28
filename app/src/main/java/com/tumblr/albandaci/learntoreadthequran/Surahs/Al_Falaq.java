@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,21 +20,23 @@ public class Al_Falaq extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"113:1", "113:2", "113:3", "113:4", "113:5"};
+    String [] verses  = {"113:1", "113:2", "113:3", "113:4", "113:5", ""};
 
     String [] arabic_verses = {"قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
     "مِن شَرِّ مَا خَلَقَ",
     "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
     "وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ",
-    "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ"};
+    "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Say, \"I seek refuge in the Lord of daybreak",
     "From the evil of that which He created",
     "And from the evil of darkness when it settles",
     "And from the evil of the blowers in knots",
-    "And from the evil of an envier when he envies.\""};
+    "And from the evil of an envier when he envies.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class Al_Falaq extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

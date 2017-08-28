@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Saba extends AppCompatActivity {
     String [] verses = {"34:1", "34:2", "34:3", "34:4", "34:5", "34:6", "34:7", "34:8", "34:9", "34:10", "34:11", "34:12", "34:13", "34:14", "34:15", "34:16",
             "34:17", "34:18", "34:19", "34:20", "34:21", "34:22", "34:23", "34:24", "34:25", "34:26", "34:27", "34:28", "34:29", "34:30", "34:31", "34:32",
             "34:33", "34:34", "34:35", "34:36", "34:37", "34:38", "34:39", "34:40", "34:41", "34:42", "34:43", "34:44", "34:45", "34:46", "34:47", "34:48",
-            "34:49", "34:50", "34:51", "34:52", "34:53", "34:54"};
+            "34:49", "34:50", "34:51", "34:52", "34:53", "34:54", ""};
 
     String [] arabic_verses = {"الْحَمْدُ لِلَّهِ الَّذِي لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَلَهُ الْحَمْدُ فِي الْآخِرَةِ ۚ وَهُوَ الْحَكِيمُ الْخَبِيرُ",
     "يَعْلَمُ مَا يَلِجُ فِي الْأَرْضِ وَمَا يَخْرُجُ مِنْهَا وَمَا يَنزِلُ مِنَ السَّمَاءِ وَمَا يَعْرُجُ فِيهَا ۚ وَهُوَ الرَّحِيمُ الْغَفُورُ",
@@ -76,14 +78,15 @@ public class Saba extends AppCompatActivity {
     "وَلَوْ تَرَىٰ إِذْ فَزِعُوا فَلَا فَوْتَ وَأُخِذُوا مِن مَّكَانٍ قَرِيبٍ",
     "وَقَالُوا آمَنَّا بِهِ وَأَنَّىٰ لَهُمُ التَّنَاوُشُ مِن مَّكَانٍ بَعِيدٍ",
     "وَقَدْ كَفَرُوا بِهِ مِن قَبْلُ ۖ وَيَقْذِفُونَ بِالْغَيْبِ مِن مَّكَانٍ بَعِيدٍ",
-    "وَحِيلَ بَيْنَهُمْ وَبَيْنَ مَا يَشْتَهُونَ كَمَا فُعِلَ بِأَشْيَاعِهِم مِّن قَبْلُ ۚ إِنَّهُمْ كَانُوا فِي شَكٍّ مُّرِيبٍ"};
+    "وَحِيلَ بَيْنَهُمْ وَبَيْنَ مَا يَشْتَهُونَ كَمَا فُعِلَ بِأَشْيَاعِهِم مِّن قَبْلُ ۚ إِنَّهُمْ كَانُوا فِي شَكٍّ مُّرِيبٍ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"[All] praise is [due] to Allah, to whom belongs whatever is in the heavens and whatever is in the earth, and to Him belongs [all] praise in the Hereafter. And He is the Wise, the Acquainted.",
     "He knows what penetrates into the earth and what emerges from it and what descends from the heaven and what ascends therein. And He is the Merciful, the Forgiving.",
@@ -138,7 +141,8 @@ public class Saba extends AppCompatActivity {
     "And if you could see when they are terrified but there is no escape, and they will be seized from a place nearby.",
     "And they will [then] say, \"We believe in it!\" But how for them will be the taking [of faith] from a place far away?",
     "And they had already disbelieved in it before and would assault the unseen from a place far away.",
-    "And prevention will be placed between them and what they desire, as was done with their kind before. Indeed, they were in disquieting denial."};
+    "And prevention will be placed between them and what they desire, as was done with their kind before. Indeed, they were in disquieting denial.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +154,9 @@ public class Saba extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

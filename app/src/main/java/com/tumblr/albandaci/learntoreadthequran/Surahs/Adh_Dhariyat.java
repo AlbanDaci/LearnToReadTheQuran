@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Adh_Dhariyat extends AppCompatActivity {
     String [] verses = {"51:1", "51:2", "51:3", "51:4", "51:5", "51:6", "51:7", "51:8", "51:9", "51:10", "51:11", "51:12", "51:13", "51:14", "51:15", "51:16",
             "51:17", "51:18", "51:19", "51:20", "51:21", "51:22", "51:23", "51:24", "51:25", "51:26", "51:27", "51:28", "51:29", "51:30", "51:31", "51:32",
             "51:33", "51:34", "51:35", "51:36", "51:37", "51:38", "51:39", "51:40", "51:41", "51:42", "51:43", "51:44", "51:45", "51:46", "51:47", "51:48",
-            "51:49", "51:50", "51:51", "51:52", "51:53", "51:54", "51:55", "51:56", "51:57", "51:58", "51:59", "51:60"};
+            "51:49", "51:50", "51:51", "51:52", "51:53", "51:54", "51:55", "51:56", "51:57", "51:58", "51:59", "51:60", ""};
 
     String [] arabic_verses = {"وَالذَّارِيَاتِ ذَرْوًا",
     "فَالْحَامِلَاتِ وِقْرًا",
@@ -82,14 +84,15 @@ public class Adh_Dhariyat extends AppCompatActivity {
     "مَا أُرِيدُ مِنْهُم مِّن رِّزْقٍ وَمَا أُرِيدُ أَن يُطْعِمُونِ",
     "إِنَّ اللَّهَ هُوَ الرَّزَّاقُ ذُو الْقُوَّةِ الْمَتِينُ",
     "فَإِنَّ لِلَّذِينَ ظَلَمُوا ذَنُوبًا مِّثْلَ ذَنُوبِ أَصْحَابِهِمْ فَلَا يَسْتَعْجِلُونِ",
-    "فَوَيْلٌ لِّلَّذِينَ كَفَرُوا مِن يَوْمِهِمُ الَّذِي يُوعَدُونَ"};
+    "فَوَيْلٌ لِّلَّذِينَ كَفَرُوا مِن يَوْمِهِمُ الَّذِي يُوعَدُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By those [winds] scattering [dust] dispersing",
     "And those [clouds] carrying a load [of water]",
@@ -150,7 +153,8 @@ public class Adh_Dhariyat extends AppCompatActivity {
     "I do not want from them any provision, nor do I want them to feed Me.",
     "Indeed, it is Allah who is the [continual] Provider, the firm possessor of strength.",
     "And indeed, for those who have wronged is a portion [of punishment] like the portion of their predecessors, so let them not impatiently urge Me.",
-    "And woe to those who have disbelieved from their Day which they are promised."};
+    "And woe to those who have disbelieved from their Day which they are promised.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +166,9 @@ public class Adh_Dhariyat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,23 +20,25 @@ public class Al_Kafirun extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"109:1", "109:2", "109:3", "109:4", "109:5", "109:6"};
+    String [] verses  = {"109:1", "109:2", "109:3", "109:4", "109:5", "109:6", ""};
 
     String [] arabic_verses = {"قُلْ يَا أَيُّهَا الْكَافِرُونَ",
     "لَا أَعْبُدُ مَا تَعْبُدُونَ",
     "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
     "وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ",
     "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
-    "لَكُمْ دِينُكُمْ وَلِيَ دِينِ"};
+    "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Say, \"O disbelievers,",
     "I do not worship what you worship.",
     "Nor are you worshippers of what I worship.",
     "Nor will I be a worshipper of what you worship.",
     "Nor will you be worshippers of what I worship.",
-    "For you is your religion, and for me is my religion.\""};
+    "For you is your religion, and for me is my religion.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class Al_Kafirun extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

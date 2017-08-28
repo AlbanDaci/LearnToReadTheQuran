@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Al_Mursalat extends AppCompatActivity {
     String [] verses = {"77:1", "77:2", "77:3", "77:4", "77:5", "77:6", "77:7", "77:8", "77:9", "77:10", "77:11", "77:12", "77:13", "77:14", "77:15", "77:16",
             "77:17", "77:18", "77:19", "77:20", "77:21", "77:22", "77:23", "77:24", "77:25", "77:26", "77:27", "77:28", "77:29", "77:30", "77:31", "77:32",
             "77:33", "77:34", "77:35", "77:36", "77:37", "77:38", "77:39", "77:40", "77:41", "77:42", "77:43", "77:44", "77:45", "77:46", "77:47", "77:48",
-            "77:49", "77:50"};
+            "77:49", "77:50", ""};
 
     String [] arabic_verses = {"وَالْمُرْسَلَاتِ عُرْفًا",
     "فَالْعَاصِفَاتِ عَصْفًا",
@@ -72,13 +74,14 @@ public class Al_Mursalat extends AppCompatActivity {
     "وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ",
     "وَإِذَا قِيلَ لَهُمُ ارْكَعُوا لَا يَرْكَعُونَ",
     "وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ",
-    "فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ"};
+    "فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By those [winds] sent forth in gusts",
     "And the winds that blow violently",
@@ -129,7 +132,8 @@ public class Al_Mursalat extends AppCompatActivity {
     "Woe, that Day, to the deniers.",
     "And when it is said to them, \"Bow [in prayer],\" they do not bow.",
     "Woe, that Day, to the deniers.",
-    "Then in what statement after the Qur'an will they believe?"};
+    "Then in what statement after the Qur'an will they believe?",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +145,9 @@ public class Al_Mursalat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

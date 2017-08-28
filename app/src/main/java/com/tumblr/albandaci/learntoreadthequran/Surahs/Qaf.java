@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class Qaf extends AppCompatActivity {
 
     String [] verses = {"50:1", "50:2", "50:3", "50:4", "50:5", "50:6", "50:7", "50:8", "50:9", "50:10", "50:11", "50:12", "50:13", "50:14", "50:15", "50:16",
             "50:17", "50:18", "50:19", "50:20", "50:21", "50:22", "50:23", "50:24", "50:25", "50:26", "50:27", "50:28", "50:29", "50:30", "50:31", "50:32",
-            "50:33", "50:34", "50:35", "50:36", "50:37", "50:38", "50:39", "50:40", "50:41", "50:42", "50:43", "50:44", "50:45"};
+            "50:33", "50:34", "50:35", "50:36", "50:37", "50:38", "50:39", "50:40", "50:41", "50:42", "50:43", "50:44", "50:45", ""};
 
     String [] arabic_verses = {"ق ۚ وَالْقُرْآنِ الْمَجِيدِ",
     "بَلْ عَجِبُوا أَن جَاءَهُم مُّنذِرٌ مِّنْهُمْ فَقَالَ الْكَافِرُونَ هَٰذَا شَيْءٌ عَجِيبٌ",
@@ -66,13 +68,14 @@ public class Qaf extends AppCompatActivity {
     "يَوْمَ يَسْمَعُونَ الصَّيْحَةَ بِالْحَقِّ ۚ ذَٰلِكَ يَوْمُ الْخُرُوجِ",
     "إِنَّا نَحْنُ نُحْيِي وَنُمِيتُ وَإِلَيْنَا الْمَصِيرُ",
     "يَوْمَ تَشَقَّقُ الْأَرْضُ عَنْهُمْ سِرَاعًا ۚ ذَٰلِكَ حَشْرٌ عَلَيْنَا يَسِيرٌ",
-    "نَّحْنُ أَعْلَمُ بِمَا يَقُولُونَ ۖ وَمَا أَنتَ عَلَيْهِم بِجَبَّارٍ ۖ فَذَكِّرْ بِالْقُرْآنِ مَن يَخَافُ وَعِيدِ"};
+    "نَّحْنُ أَعْلَمُ بِمَا يَقُولُونَ ۖ وَمَا أَنتَ عَلَيْهِم بِجَبَّارٍ ۖ فَذَكِّرْ بِالْقُرْآنِ مَن يَخَافُ وَعِيدِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Qaf. By the honored Qur'an...",
     "But they wonder that there has come to them a warner from among themselves, and the disbelievers say, \"This is an amazing thing.",
@@ -118,7 +121,8 @@ public class Qaf extends AppCompatActivity {
     "The Day they will hear the blast [of the Horn] in truth. That is the Day of Emergence [from the graves].",
     "Indeed, it is We who give life and cause death, and to Us is the destination",
     "On the Day the earth breaks away from them [and they emerge] rapidly; that is a gathering easy for Us.",
-    "We are most knowing of what they say, and you are not over them a tyrant. But remind by the Qur'an whoever fears My threat."};
+    "We are most knowing of what they say, and you are not over them a tyrant. But remind by the Qur'an whoever fears My threat.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +134,9 @@ public class Qaf extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

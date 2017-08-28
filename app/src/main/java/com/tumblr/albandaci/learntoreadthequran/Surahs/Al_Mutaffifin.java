@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class Al_Mutaffifin extends AppCompatActivity {
 
     String [] verses  = {"83:1", "83:2", "83:3", "83:4", "83:5", "83:6", "83:7", "83:8", "83:9", "83:10", "83:11", "83:12", "83:13", "83:14", "83:15", "83:16",
             "83:17", "83:18", "83:19", "83:20", "83:21", "83:22", "83:23", "83:24", "83:25", "83:26", "83:27", "83:28", "83:29", "83:30", "83:31", "83:32",
-            "83:33", "83:34", "83:35", "83:36"};
+            "83:33", "83:34", "83:35", "83:36", ""};
 
     String [] arabic_verses = {"وَيْلٌ لِّلْمُطَفِّفِينَ",
     "الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ",
@@ -57,12 +59,13 @@ public class Al_Mutaffifin extends AppCompatActivity {
     "وَمَا أُرْسِلُوا عَلَيْهِمْ حَافِظِينَ",
     "فَالْيَوْمَ الَّذِينَ آمَنُوا مِنَ الْكُفَّارِ يَضْحَكُونَ",
     "عَلَى الْأَرَائِكِ يَنظُرُونَ",
-    "هَلْ ثُوِّبَ الْكُفَّارُ مَا كَانُوا يَفْعَلُونَ"};
+    "هَلْ ثُوِّبَ الْكُفَّارُ مَا كَانُوا يَفْعَلُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Woe to those who give less [than due],",
     "Who, when they take a measure from people, take in full.",
@@ -99,7 +102,8 @@ public class Al_Mutaffifin extends AppCompatActivity {
     "But they had not been sent as guardians over them.",
     "So Today those who believed are laughing at the disbelievers,",
     "On adorned couches, observing.",
-    "Have the disbelievers [not] been rewarded [this Day] for what they used to do?"};
+    "Have the disbelievers [not] been rewarded [this Day] for what they used to do?",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +115,9 @@ public class Al_Mutaffifin extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

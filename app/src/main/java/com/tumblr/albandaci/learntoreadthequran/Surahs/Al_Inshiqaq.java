@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Inshiqaq extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"84:1", "84:2", "84:3", "84:4", "84:5", "84:6", "84:7", "84:8", "84:9", "84:10", "84:11", "84:12", "84:13", "84:14", "84:15", "84:16",
-            "84:17", "84:18", "84:19", "84:20", "84:21", "84:22", "84:23", "84:24", "84:25"};
+            "84:17", "84:18", "84:19", "84:20", "84:21", "84:22", "84:23", "84:24", "84:25", ""};
 
     String [] arabic_verses = {"إِذَا السَّمَاءُ انشَقَّتْ",
     "وَأَذِنَتْ لِرَبِّهَا وَحُقَّتْ",
@@ -45,11 +47,12 @@ public class Al_Inshiqaq extends AppCompatActivity {
     "بَلِ الَّذِينَ كَفَرُوا يُكَذِّبُونَ",
     "وَاللَّهُ أَعْلَمُ بِمَا يُوعُونَ",
     "فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ",
-    "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ لَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ"};
+    "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ لَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"When the sky has split [open]",
     "And has responded to its Lord and was obligated [to do so]",
@@ -75,7 +78,8 @@ public class Al_Inshiqaq extends AppCompatActivity {
     "But those who have disbelieved deny,",
     "And Allah is most knowing of what they keep within themselves.",
     "So give them tidings of a painful punishment,",
-    "Except for those who believe and do righteous deeds. For them is a reward uninterrupted."};
+    "Except for those who believe and do righteous deeds. For them is a reward uninterrupted.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,9 @@ public class Al_Inshiqaq extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Indefinites_Accusative_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -14,11 +16,11 @@ public class Indefinites_Accusative extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] arabic_letter = {"كِتَابًا", "دَرْسًا", "قَلَمًا", "قَائِمًا", "قَائِلًا", "جَالِسًا", "وَرَقَةً", "عِلْمًا", "خُبْزًا", "مُجْتَهِدًا"};
+    String [] arabic_letter = {"كِتَابًا", "دَرْسًا", "قَلَمًا", "قَائِمًا", "قَائِلًا", "جَالِسًا", "وَرَقَةً", "عِلْمًا", "خُبْزًا", "مُجْتَهِدًا", ""};
 
-    String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:"};
+    String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", ""};
 
-    String [] english_letter = {"Ki-taa-ban", "Dar-san", "Qa-la-man", "Qaa-i-man", "Qaa-i-lan", "Jaa-li-san", "Wa-ra-qa-tan", "'Il-man", "Khub-zan", "Muj-ta-hi-dan"};
+    String [] english_letter = {"Ki-taa-ban", "Dar-san", "Qa-la-man", "Qaa-i-man", "Qaa-i-lan", "Jaa-li-san", "Wa-ra-qa-tan", "'Il-man", "Khub-zan", "Muj-ta-hi-dan", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +32,8 @@ public class Indefinites_Accusative extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

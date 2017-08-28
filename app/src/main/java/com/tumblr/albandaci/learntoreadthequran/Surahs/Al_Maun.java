@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class Al_Maun extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"107:1", "107:2", "107:3", "107:4", "107:5", "107:6", "107:7"};
+    String [] verses  = {"107:1", "107:2", "107:3", "107:4", "107:5", "107:6", "107:7", ""};
 
     String [] arabic_verses = {"أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ",
     "فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ",
@@ -26,9 +28,10 @@ public class Al_Maun extends AppCompatActivity {
     "فَوَيْلٌ لِّلْمُصَلِّينَ",
     "الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ",
     "الَّذِينَ هُمْ يُرَاءُونَ",
-    "وَيَمْنَعُونَ الْمَاعُونَ"};
+    "وَيَمْنَعُونَ الْمَاعُونَ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Have you seen the one who denies the Recompense?",
     "For that is the one who drives away the orphan",
@@ -36,7 +39,8 @@ public class Al_Maun extends AppCompatActivity {
     "So woe to those who pray",
     "[But] who are heedless of their prayer -",
     "Those who make show [of their deeds]",
-    "And withhold [simple] assistance."};
+    "And withhold [simple] assistance.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,9 @@ public class Al_Maun extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

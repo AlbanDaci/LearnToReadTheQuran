@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -25,7 +27,7 @@ public class Al_Muminun extends AppCompatActivity {
             "23:65", "23:66", "23:67", "23:68", "23:69", "23:70", "23:71", "23:72", "23:73", "23:74", "23:75", "23:76", "23:77", "23:78", "23:79", "23:80",
             "23:81", "23:82", "23:83", "23:84", "23:85", "23:86", "23:87", "23:88", "23:89", "23:90", "23:91", "23:92", "23:93", "23:94", "23:95", "23:96",
             "23:97", "23:98", "23:99", "23:100", "23:101", "23:102", "23:103", "23:104", "23:105", "23:106", "23:107", "23:108", "23:109", "23:110", "23:111", "23:112",
-            "23:113", "23:114", "23:115", "23:116", "23:117", "23:118"};
+            "23:113", "23:114", "23:115", "23:116", "23:117", "23:118", ""};
 
     String [] arabic_verses = {"قَدْ أَفْلَحَ الْمُؤْمِنُونَ",
     "الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ",
@@ -144,7 +146,8 @@ public class Al_Muminun extends AppCompatActivity {
     "أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا وَأَنَّكُمْ إِلَيْنَا لَا تُرْجَعُونَ",
     "فَتَعَالَى اللَّهُ الْمَلِكُ الْحَقُّ ۖ لَا إِلَٰهَ إِلَّا هُوَ رَبُّ الْعَرْشِ الْكَرِيمِ",
     "وَمَن يَدْعُ مَعَ اللَّهِ إِلَٰهًا آخَرَ لَا بُرْهَانَ لَهُ بِهِ فَإِنَّمَا حِسَابُهُ عِندَ رَبِّهِ ۚ إِنَّهُ لَا يُفْلِحُ الْكَافِرُونَ",
-    "وَقُل رَّبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ"};
+    "وَقُل رَّبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -157,7 +160,7 @@ public class Al_Muminun extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Certainly will the believers have succeeded:",
     "They who are during their prayer humbly submissive",
@@ -276,7 +279,8 @@ public class Al_Muminun extends AppCompatActivity {
     "Then did you think that We created you uselessly and that to Us you would not be returned?\"",
     "So exalted is Allah, the Sovereign, the Truth; there is no deity except Him, Lord of the Noble Throne.",
     "And whoever invokes besides Allah another deity for which he has no proof - then his account is only with his Lord. Indeed, the disbelievers will not succeed.",
-    "And, [O Muhammad], say, \"My Lord, forgive and have mercy, and You are the best of the merciful.\""};
+    "And, [O Muhammad], say, \"My Lord, forgive and have mercy, and You are the best of the merciful.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,6 +292,9 @@ public class Al_Muminun extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

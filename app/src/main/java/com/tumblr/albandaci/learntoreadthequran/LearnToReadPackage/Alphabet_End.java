@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Alphabet_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,19 +20,19 @@ public class Alphabet_End extends AppCompatActivity {
             "ــد", "ــذ", "ــر", "ــز", "ــس", "ــش", "ــص",
             "ــض", "ــط", "ــظ", "ــع", "ــغ", "ــف", "ــق",
             "ــك", "ــل", "ــم", "ــن", "ــه", "ــو", "ــلا",
-            "ــي"};
+            "ــي", ""};
 
     String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
-            "Transliteration"};
+            "Transliteration", ""};
 
     String [] english_letter = {"Alif (Middle & End)", "Baa' (End)", "Taa' (End)", "Thaa' (End)", "Jeem (End)", "Hhaa' (End)", "Khaa' (End)",
             "Daal (Middle & End)", "Dhaal (Middle & End)", "Raa' (Middle & End)", "Zaay (Middle & End)", "Seen (End)", "Sheen (End)", "Ssaad (End)",
             "Ddaad (End)", "Ttaa' (End)", "Zhaa' (End)", "'Ain (End)", "Ghayn (End)", "Faa' (End)", "Qaaf (End)",
             "Kaaf (End)", "Laam (End)", "Meem (End)", "Noon (End)", "Haa' (End)", "Waaw (Middle & End)", "Laamalif (Middle & End)",
-            "Yaa' (End)"};
+            "Yaa' (End)", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +44,8 @@ public class Alphabet_End extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

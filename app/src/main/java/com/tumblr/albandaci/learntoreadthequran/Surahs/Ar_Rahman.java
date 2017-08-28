@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -22,7 +24,7 @@ public class Ar_Rahman extends AppCompatActivity {
             "55:17", "55:18", "55:19", "55:20", "55:21", "55:22", "55:23", "55:24", "55:25", "55:26", "55:27", "55:28", "55:29", "55:30", "55:31", "55:32",
             "55:33", "55:34", "55:35", "55:36", "55:37", "55:38", "55:39", "55:40", "55:41", "55:42", "55:43", "55:44", "55:45", "55:46", "55:47", "55:48",
             "55:49", "55:50", "55:51", "55:52", "55:53", "55:54", "55:55", "55:56", "55:57", "55:58", "55:59", "55:60", "55:61", "55:62", "55:63", "55:64",
-            "55:65", "55:66", "55:67", "55:68", "55:69", "55:70", "55:71", "55:72", "55:73", "55:74", "55:75", "55:76", "55:77", "55:78"};
+            "55:65", "55:66", "55:67", "55:68", "55:69", "55:70", "55:71", "55:72", "55:73", "55:74", "55:75", "55:76", "55:77", "55:78", ""};
 
     String [] arabic_verses= {"الرَّحْمَٰنُ",
     "عَلَّمَ الْقُرْآنَ",
@@ -101,7 +103,8 @@ public class Ar_Rahman extends AppCompatActivity {
     "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
     "مُتَّكِئِينَ عَلَىٰ رَفْرَفٍ خُضْرٍ وَعَبْقَرِيٍّ حِسَانٍ",
     "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
-    "تَبَارَكَ اسْمُ رَبِّكَ ذِي الْجَلَالِ وَالْإِكْرَامِ"};
+    "تَبَارَكَ اسْمُ رَبِّكَ ذِي الْجَلَالِ وَالْإِكْرَامِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -110,7 +113,7 @@ public class Ar_Rahman extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"The Most Merciful",
     "Taught the Qur'an,",
@@ -189,7 +192,8 @@ public class Ar_Rahman extends AppCompatActivity {
     "So which of the favors of your Lord would you deny? -",
     "Reclining on green cushions and beautiful fine carpets.",
     "So which of the favors of your Lord would you deny?",
-    "Blessed is the name of your Lord, Owner of Majesty and Honor."};
+    "Blessed is the name of your Lord, Owner of Majesty and Honor.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +205,9 @@ public class Ar_Rahman extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class Al_Qiyamah extends AppCompatActivity {
 
     String [] verses = {"75:1", "75:2", "75:3", "75:4", "75:5", "75:6", "75:7", "75:8", "75:9", "75:10", "75:11", "75:12", "75:13", "75:14", "75:15", "75:16",
             "75:17", "75:18", "75:19", "75:20", "75:21", "75:22", "75:23", "75:24", "75:25", "75:26", "75:27", "75:28", "75:29", "75:30", "75:31", "75:32",
-            "75:33", "75:34", "75:35", "75:36", "75:37", "75:38", "75:39", "75:40"};
+            "75:33", "75:34", "75:35", "75:36", "75:37", "75:38", "75:39", "75:40", ""};
 
     String [] arabic_verses = {"لَا أُقْسِمُ بِيَوْمِ الْقِيَامَةِ",
     "وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
@@ -61,12 +63,13 @@ public class Al_Qiyamah extends AppCompatActivity {
     "أَلَمْ يَكُ نُطْفَةً مِّن مَّنِيٍّ يُمْنَىٰ",
     "ثُمَّ كَانَ عَلَقَةً فَخَلَقَ فَسَوَّىٰ",
     "فَجَعَلَ مِنْهُ الزَّوْجَيْنِ الذَّكَرَ وَالْأُنثَىٰ",
-    "أَلَيْسَ ذَٰلِكَ بِقَادِرٍ عَلَىٰ أَن يُحْيِيَ الْمَوْتَىٰ"};
+    "أَلَيْسَ ذَٰلِكَ بِقَادِرٍ عَلَىٰ أَن يُحْيِيَ الْمَوْتَىٰ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"I swear by the Day of Resurrection",
     "And I swear by the reproaching soul [to the certainty of resurrection].",
@@ -107,7 +110,8 @@ public class Al_Qiyamah extends AppCompatActivity {
     "Had he not been a sperm from semen emitted?",
     "Then he was a clinging clot, and [Allah] created [his form] and proportioned [him]",
     "And made of him two mates, the male and the female.",
-    "Is not that [Creator] Able to give life to the dead?"};
+    "Is not that [Creator] Able to give life to the dead?",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +123,9 @@ public class Al_Qiyamah extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

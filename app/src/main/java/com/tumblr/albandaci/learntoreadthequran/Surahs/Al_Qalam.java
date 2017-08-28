@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Al_Qalam extends AppCompatActivity {
     String [] verses = {"68:1", "68:2", "68:3", "68:4", "68:5", "68:6", "68:7", "68:8", "68:9", "68:10", "68:11", "68:12", "68:13", "68:14", "68:15", "68:16",
             "68:17", "68:18", "68:19", "68:20", "68:21", "68:22", "68:23", "68:24", "68:25", "68:26", "68:27", "68:28", "68:29", "68:30", "68:31", "68:32",
             "68:33", "68:34", "68:35", "68:36", "68:37", "68:38", "68:39", "68:40", "68:41", "68:42", "68:43", "68:44", "68:45", "68:46", "68:47", "68:48",
-            "68:49", "68:50", "68:51", "68:52"};
+            "68:49", "68:50", "68:51", "68:52", ""};
 
     String [] arabic_verses = {"ن ۚ وَالْقَلَمِ وَمَا يَسْطُرُونَ",
     "مَا أَنتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ",
@@ -74,14 +76,15 @@ public class Al_Qalam extends AppCompatActivity {
     "لَّوْلَا أَن تَدَارَكَهُ نِعْمَةٌ مِّن رَّبِّهِ لَنُبِذَ بِالْعَرَاءِ وَهُوَ مَذْمُومٌ",
     "فَاجْتَبَاهُ رَبُّهُ فَجَعَلَهُ مِنَ الصَّالِحِينَ",
     "وَإِن يَكَادُ الَّذِينَ كَفَرُوا لَيُزْلِقُونَكَ بِأَبْصَارِهِمْ لَمَّا سَمِعُوا الذِّكْرَ وَيَقُولُونَ إِنَّهُ لَمَجْنُونٌ",
-    "وَمَا هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ"};
+    "وَمَا هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Nun. By the pen and what they inscribe,",
     "You are not, [O Muhammad], by the favor of your Lord, a madman.",
@@ -134,7 +137,8 @@ public class Al_Qalam extends AppCompatActivity {
     "If not that a favor from his Lord overtook him, he would have been thrown onto the naked shore while he was censured.",
     "And his Lord chose him and made him of the righteous.",
     "And indeed, those who disbelieve would almost make you slip with their eyes when they hear the message, and they say, \"Indeed, he is mad.\"",
-    "But it is not except a reminder to the worlds."};
+    "But it is not except a reminder to the worlds.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +150,9 @@ public class Al_Qalam extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

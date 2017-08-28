@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -24,7 +26,7 @@ public class Al_Anbya extends AppCompatActivity {
             "21:49", "21:50", "21:51", "21:52", "21:53", "21:54", "21:55", "21:56", "21:57", "21:58", "21:59", "21:60", "21:61", "21:62", "21:63", "21:64",
             "21:65", "21:66", "21:67", "21:68", "21:69", "21:70", "21:71", "21:72", "21:73", "21:74", "21:75", "21:76", "21:77", "21:78", "21:79", "21:80",
             "21:81", "21:82", "21:83", "21:84", "21:85", "21:86", "21:87", "21:88", "21:89", "21:90", "21:91", "21:92", "21:93", "21:94", "21:95", "21:96",
-            "21:97", "21:98", "21:99", "21:100", "21:101", "21:102", "21:103", "21:104", "21:105", "21:106", "21:107", "21:108", "21:109", "21:110", "21:111", "21:112"};
+            "21:97", "21:98", "21:99", "21:100", "21:101", "21:102", "21:103", "21:104", "21:105", "21:106", "21:107", "21:108", "21:109", "21:110", "21:111", "21:112", ""};
 
     String [] arabic_verses = {"اقْتَرَبَ لِلنَّاسِ حِسَابُهُمْ وَهُمْ فِي غَفْلَةٍ مُّعْرِضُونَ",
     "مَا يَأْتِيهِم مِّن ذِكْرٍ مِّن رَّبِّهِم مُّحْدَثٍ إِلَّا اسْتَمَعُوهُ وَهُمْ يَلْعَبُونَ",
@@ -137,7 +139,8 @@ public class Al_Anbya extends AppCompatActivity {
     "فَإِن تَوَلَّوْا فَقُلْ آذَنتُكُمْ عَلَىٰ سَوَاءٍ ۖ وَإِنْ أَدْرِي أَقَرِيبٌ أَم بَعِيدٌ مَّا تُوعَدُونَ",
     "إِنَّهُ يَعْلَمُ الْجَهْرَ مِنَ الْقَوْلِ وَيَعْلَمُ مَا تَكْتُمُونَ",
     "وَإِنْ أَدْرِي لَعَلَّهُ فِتْنَةٌ لَّكُمْ وَمَتَاعٌ إِلَىٰ حِينٍ",
-    "قَالَ رَبِّ احْكُم بِالْحَقِّ ۗ وَرَبُّنَا الرَّحْمَٰنُ الْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ"};
+    "قَالَ رَبِّ احْكُم بِالْحَقِّ ۗ وَرَبُّنَا الرَّحْمَٰنُ الْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -150,7 +153,7 @@ public class Al_Anbya extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"[The time of] their account has approached for the people, while they are in heedlessness turning away.",
     "No mention comes to them anew from their Lord except that they listen to it while they are at play",
@@ -263,7 +266,8 @@ public class Al_Anbya extends AppCompatActivity {
     "But if they turn away, then say, \"I have announced to [all of] you equally. And I know not whether near or far is that which you are promised.",
     "Indeed, He knows what is declared of speech, and He knows what you conceal.",
     "And I know not; perhaps it is a trial for you and enjoyment for a time.\"",
-    "[The Prophet] has said, \"My Lord, judge [between us] in truth. And our Lord is the Most Merciful, the one whose help is sought against that which you describe.\""};
+    "[The Prophet] has said, \"My Lord, judge [between us] in truth. And our Lord is the Most Merciful, the one whose help is sought against that which you describe.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -275,6 +279,9 @@ public class Al_Anbya extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

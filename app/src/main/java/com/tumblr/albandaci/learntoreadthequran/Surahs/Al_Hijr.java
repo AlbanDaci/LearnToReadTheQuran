@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -24,7 +26,7 @@ public class Al_Hijr extends AppCompatActivity {
             "15:49", "15:50", "15:51", "15:52", "15:53", "15:54", "15:55", "15:56", "15:57", "15:58", "15:59", "15:60", "15:61", "15:62", "15:63", "15:64",
             "15:65", "15:66", "15:67", "15:68", "15:69", "15:70", "15:71", "15:72", "15:73", "15:74", "15:75", "15:76", "15:77", "15:78", "15:79", "15:80",
             "15:81", "15:82", "15:83", "15:84", "15:85", "15:86", "15:87", "15:88", "15:89", "15:90", "15:91", "15:92", "15:93", "15:94", "15:95", "15:96",
-            "15:97", "15:98", "15:99"};
+            "15:97", "15:98", "15:99", ""};
 
     String [] arabic_verses = {"الر ۚ تِلْكَ آيَاتُ الْكِتَابِ وَقُرْآنٍ مُّبِينٍ",
     "رُّبَمَا يَوَدُّ الَّذِينَ كَفَرُوا لَوْ كَانُوا مُسْلِمِينَ",
@@ -124,7 +126,8 @@ public class Al_Hijr extends AppCompatActivity {
     "الَّذِينَ يَجْعَلُونَ مَعَ اللَّهِ إِلَٰهًا آخَرَ ۚ فَسَوْفَ يَعْلَمُونَ",
     "وَلَقَدْ نَعْلَمُ أَنَّكَ يَضِيقُ صَدْرُكَ بِمَا يَقُولُونَ",
     "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَكُن مِّنَ السَّاجِدِينَ",
-    "وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ"};
+    "وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -135,7 +138,7 @@ public class Al_Hijr extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Ra. These are the verses of the Book and a clear Qur'an.",
     "Perhaps those who disbelieve will wish that they had been Muslims.",
@@ -235,7 +238,8 @@ public class Al_Hijr extends AppCompatActivity {
     "Who make [equal] with Allah another deity. But they are going to know.",
     "And We already know that your breast is constrained by what they say.",
     "So exalt [Allah] with praise of your Lord and be of those who prostrate [to Him].",
-    "And worship your Lord until there comes to you the certainty (death)."};
+    "And worship your Lord until there comes to you the certainty (death).",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,6 +251,9 @@ public class Al_Hijr extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

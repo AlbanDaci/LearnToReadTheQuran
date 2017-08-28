@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class Al_Adiyat extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"100:1", "100:2", "100:3", "100:4", "100:5", "100:6", "100:7", "100:8", "100:9", "100:10", "100:11"};
+    String [] verses  = {"100:1", "100:2", "100:3", "100:4", "100:5", "100:6", "100:7", "100:8", "100:9", "100:10", "100:11", ""};
 
     String [] arabic_verses = {"وَالْعَادِيَاتِ ضَبْحًا",
     "فَالْمُورِيَاتِ قَدْحًا",
@@ -30,10 +32,11 @@ public class Al_Adiyat extends AppCompatActivity {
     "وَإِنَّهُ لِحُبِّ الْخَيْرِ لَشَدِيدٌ",
     "أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِي الْقُبُورِ",
     "وَحُصِّلَ مَا فِي الصُّدُورِ",
-    "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌ"};
+    "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International"};
+            "Sahih International", ""};
 
     String [] english_verses = {"By the racers, panting,",
     "And the producers of sparks [when] striking",
@@ -45,7 +48,8 @@ public class Al_Adiyat extends AppCompatActivity {
     "And indeed he is, in love of wealth, intense.",
     "But does he not know that when the contents of the graves are scattered",
     "And that within the breasts is obtained,",
-    "Indeed, their Lord with them, that Day, is [fully] Acquainted."};
+    "Indeed, their Lord with them, that Day, is [fully] Acquainted.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class Al_Adiyat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

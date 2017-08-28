@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Alphabet_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,19 +20,19 @@ public class Alphabet_Single extends AppCompatActivity {
     "د", "ذ", "ر", "ز", "س", "ش", "ص",
     "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
     "ك", "ل", "م", "ن", "ه", "و", "لا",
-    "ي"};
+    "ي", ""};
 
     String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
-            "Transliteration"};
+            "Transliteration", ""};
 
     String [] english_letter = {"Alif (Single & Initial)", "Baa' (Single)", "Taa' (Single)", "Thaa' (Single)", "Jeem (Single)", "Hhaa' (Single)", "Khaa' (Single)",
     "Daal (Single & Initial)", "Dhaal (Single & Initial)", "Raa' (Single & Initial)", "Zaay (Single & Initial)", "Seen (Single)", "Sheen (Single)", "Ssaad (Single)",
     "Ddaad (Single)", "Ttaa' (Single)", "Zhaa' (Single)", "'Ain (Single)", "Ghayn (Single)", "Faa' (Single)", "Qaaf (Single)",
     "Kaaf (Single)", "Laam (Single)", "Meem (Single)", "Noon (Single)", "Haa' (Single)", "Waaw (Single & Initial)", "Laamalif (Single & Initial)",
-    "Yaa' (Single)"};
+    "Yaa' (Single)", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +44,8 @@ public class Alphabet_Single extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Buruj extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"85:1", "85:2", "85:3", "85:4", "85:5", "85:6", "85:7", "85:8", "85:9", "85:10", "85:11", "85:12", "85:13", "85:14", "85:15", "85:16",
-            "85:17", "85:18", "85:19", "85:20", "85:21", "85:22"};
+            "85:17", "85:18", "85:19", "85:20", "85:21", "85:22", ""};
 
     String [] arabic_verses = {"وَالسَّمَاءِ ذَاتِ الْبُرُوجِ",
     "وَالْيَوْمِ الْمَوْعُودِ",
@@ -42,11 +44,12 @@ public class Al_Buruj extends AppCompatActivity {
     "بَلِ الَّذِينَ كَفَرُوا فِي تَكْذِيبٍ",
     "وَاللَّهُ مِن وَرَائِهِم مُّحِيطٌ",
     "بَلْ هُوَ قُرْآنٌ مَّجِيدٌ",
-    "فِي لَوْحٍ مَّحْفُوظٍ"};
+    "فِي لَوْحٍ مَّحْفُوظٍ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the sky containing great stars",
     "And [by] the promised Day",
@@ -69,7 +72,8 @@ public class Al_Buruj extends AppCompatActivity {
     "But they who disbelieve are in [persistent] denial,",
     "While Allah encompasses them from behind.",
     "But this is an honored Qur'an",
-    "[Inscribed] in a Preserved Slate."};
+    "[Inscribed] in a Preserved Slate.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,9 @@ public class Al_Buruj extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

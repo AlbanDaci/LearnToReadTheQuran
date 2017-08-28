@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class An_Naziat extends AppCompatActivity {
 
     String [] verses = {"79:1", "79:2", "79:3", "79:4", "79:5", "79:6", "79:7", "79:8", "79:9", "79:10", "79:11", "79:12", "79:13", "79:14", "79:15", "79:16",
             "79:17", "79:18", "79:19", "79:20", "79:21", "79:22", "79:23", "79:24", "79:25", "79:26", "79:27", "79:28", "79:29", "79:30", "79:31", "79:32",
-            "79:33", "79:34", "79:35", "79:36", "79:37", "79:38", "79:39", "79:40", "79:41", "79:42", "79:43", "79:44", "79:45", "79:46"};
+            "79:33", "79:34", "79:35", "79:36", "79:37", "79:38", "79:39", "79:40", "79:41", "79:42", "79:43", "79:44", "79:45", "79:46", ""};
 
     String [] arabic_verses = {"وَالنَّازِعَاتِ غَرْقًا",
     "وَالنَّاشِطَاتِ نَشْطًا",
@@ -67,13 +69,14 @@ public class An_Naziat extends AppCompatActivity {
     "فِيمَ أَنتَ مِن ذِكْرَاهَا",
     "إِلَىٰ رَبِّكَ مُنتَهَاهَا",
     "إِنَّمَا أَنتَ مُنذِرُ مَن يَخْشَاهَا",
-    "كَأَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثُوا إِلَّا عَشِيَّةً أَوْ ضُحَاهَا"};
+    "كَأَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثُوا إِلَّا عَشِيَّةً أَوْ ضُحَاهَا",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By those [angels] who extract with violence",
     "And [by] those who remove with ease",
@@ -120,7 +123,8 @@ public class An_Naziat extends AppCompatActivity {
     "In what [position] are you that you should mention it?",
     "To your Lord is its finality.",
     "You are only a warner for those who fear it.",
-    "It will be, on the Day they see it, as though they had not remained [in the world] except for an afternoon or a morning thereof."};
+    "It will be, on the Day they see it, as though they had not remained [in the world] except for an afternoon or a morning thereof.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +136,9 @@ public class An_Naziat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

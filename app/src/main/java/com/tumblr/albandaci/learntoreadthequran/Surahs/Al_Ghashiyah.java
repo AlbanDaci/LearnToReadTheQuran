@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Ghashiyah extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"88:1", "88:2", "88:3", "88:4", "88:5", "88:6", "88:7", "88:8", "88:9", "88:10", "88:11", "88:12", "88:13", "88:14", "88:15", "88:16",
-            "88:17", "88:18", "88:19", "88:20", "88:21", "88:22", "88:23", "88:24", "88:25", "88:26"};
+            "88:17", "88:18", "88:19", "88:20", "88:21", "88:22", "88:23", "88:24", "88:25", "88:26", ""};
 
     String [] arabic_verses = {"هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ",
     "وُجُوهٌ يَوْمَئِذٍ خَاشِعَةٌ",
@@ -46,11 +48,12 @@ public class Al_Ghashiyah extends AppCompatActivity {
     "إِلَّا مَن تَوَلَّىٰ وَكَفَرَ",
     "فَيُعَذِّبُهُ اللَّهُ الْعَذَابَ الْأَكْبَرَ",
     "إِنَّ إِلَيْنَا إِيَابَهُمْ",
-    "ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُم"};
+    "ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُم",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Has there reached you the report of the Overwhelming [event]?",
     "[Some] faces, that Day, will be humbled,",
@@ -77,7 +80,8 @@ public class Al_Ghashiyah extends AppCompatActivity {
     "However, he who turns away and disbelieves -",
     "Then Allah will punish him with the greatest punishment.",
     "Indeed, to Us is their return.",
-    "Then indeed, upon Us is their account."};
+    "Then indeed, upon Us is their account.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +93,9 @@ public class Al_Ghashiyah extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

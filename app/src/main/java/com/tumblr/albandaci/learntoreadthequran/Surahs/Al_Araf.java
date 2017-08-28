@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -34,8 +36,7 @@ public class Al_Araf extends AppCompatActivity {
             "7:145", "7:146", "7:147", "7:148", "7:149", "7:150", "7:151", "7:152", "7:153", "7:154", "7:155", "7:156", "7:157", "7:158", "7:159", "7:160",
             "7:161", "7:162", "7:163", "7:164", "7:165", "7:166", "7:167", "7:168", "7:169", "7:170", "7:171", "7:172", "7:173", "7:174", "7:175", "7:176",
             "7:177", "7:178", "7:179", "7:180", "7:181", "7:182", "7:183", "7:184", "7:185", "7:186", "7:187", "7:188", "7:189", "7:190", "7:191", "7:192",
-            "7:193", "7:194", "7:195", "7:196", "7:197", "7:198", "7:199", "7:200", "7:201", "7:202", "7:203", "7:204", "7:205", "7:206"
-    };
+            "7:193", "7:194", "7:195", "7:196", "7:197", "7:198", "7:199", "7:200", "7:201", "7:202", "7:203", "7:204", "7:205", "7:206", ""};
 
     String [] arabic_verses = {"المص",
     "كِتَابٌ أُنزِلَ إِلَيْكَ فَلَا يَكُن فِي صَدْرِكَ حَرَجٌ مِّنْهُ لِتُنذِرَ بِهِ وَذِكْرَىٰ لِلْمُؤْمِنِينَ",
@@ -242,7 +243,8 @@ public class Al_Araf extends AppCompatActivity {
     "وَإِذَا لَمْ تَأْتِهِم بِآيَةٍ قَالُوا لَوْلَا اجْتَبَيْتَهَا ۚ قُلْ إِنَّمَا أَتَّبِعُ مَا يُوحَىٰ إِلَيَّ مِن رَّبِّي ۚ هَٰذَا بَصَائِرُ مِن رَّبِّكُمْ وَهُدًى وَرَحْمَةٌ لِّقَوْمٍ يُؤْمِنُونَ",
     "وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنصِتُوا لَعَلَّكُمْ تُرْحَمُونَ",
     "وَاذْكُر رَّبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً وَدُونَ الْجَهْرِ مِنَ الْقَوْلِ بِالْغُدُوِّ وَالْآصَالِ وَلَا تَكُن مِّنَ الْغَافِلِينَ",
-    "إِنَّ الَّذِينَ عِندَ رَبِّكَ لَا يَسْتَكْبِرُونَ عَنْ عِبَادَتِهِ وَيُسَبِّحُونَهُ وَلَهُ يَسْجُدُونَ ۩"};
+    "إِنَّ الَّذِينَ عِندَ رَبِّكَ لَا يَسْتَكْبِرُونَ عَنْ عِبَادَتِهِ وَيُسَبِّحُونَهُ وَلَهُ يَسْجُدُونَ ۩",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -264,7 +266,7 @@ public class Al_Araf extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Meem, Sad.",
     "[This is] a Book revealed to you, [O Muhammad] - so let there not be in your breast distress therefrom - that you may warn thereby and as a reminder to the believers.",
@@ -471,7 +473,8 @@ public class Al_Araf extends AppCompatActivity {
     "And when you, [O Muhammad], do not bring them a sign, they say, \"Why have you not contrived it?\" Say, \"I only follow what is revealed to me from my Lord. This [Qur'an] is enlightenment from your Lord and guidance and mercy for a people who believe.\"",
     "So when the Qur'an is recited, then listen to it and pay attention that you may receive mercy.",
     "And remember your Lord within yourself in humility and in fear without being apparent in speech - in the mornings and the evenings. And do not be among the heedless.",
-    "Indeed, those who are near your Lord are not prevented by arrogance from His worship, and they exalt Him, and to Him they prostrate."};
+    "Indeed, those who are near your Lord are not prevented by arrogance from His worship, and they exalt Him, and to Him they prostrate.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -484,6 +487,9 @@ public class Al_Araf extends AppCompatActivity {
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
         mediaPlayer = new MediaPlayer();
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

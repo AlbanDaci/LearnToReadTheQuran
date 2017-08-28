@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Tips_And_Notes_Adapter;
 
 public class Tips extends AppCompatActivity {
@@ -32,7 +34,8 @@ public class Tips extends AppCompatActivity {
             "بٍ",
             "ة",
             "ء",
-            "أ"};
+            "أ",
+            ""};
 
     String [] pronunciation = {"Pronounced: /ba/",
             "Pronounced: /baː/",
@@ -53,7 +56,8 @@ public class Tips extends AppCompatActivity {
             "Pronounced: /bin/",
             "Pronounced: /t/, /h/",
             "Pronounced: /ʔ/",
-            "Pronounced: /a/"};
+            "Pronounced: /a/",
+            ""};
 
     String [] text = {"The fatḥah is a diagonal line placed above a letter, and represents a short /a/",
             "When a fatḥah is placed before the letter alif, it represents a long /aː/",
@@ -74,7 +78,8 @@ public class Tips extends AppCompatActivity {
             "This diacritic is used at the end of a word and marks the genitive case. It represents the sound /in/",
             "Taa' marbūṭah is used at the end of words to mark feminine gender for nouns and adjectives. Historically, it was pronounced as the /t/ sound in all positions, but in coda positions it eventually developed into a weakly aspirated /h/ sound.",
             "Hamza is a letter in the Arabic alphabet, representing the glottal stop.",
-            "Hamza is not one of the 28 \"full\" letters, and owes its existence to historical inconsistencies in the standard writing system. Alif was used to express both a glottal stop and a long vowel /aː/. To indicate that a glottal stop, and not a mere vowel, was intended, hamza was added diacritically to alif."};
+            "Hamza is not one of the 28 \"full\" letters, and owes its existence to historical inconsistencies in the standard writing system. Alif was used to express both a glottal stop and a long vowel /aː/. To indicate that a glottal stop, and not a mere vowel, was intended, hamza was added diacritically to alif.",
+            ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +91,8 @@ public class Tips extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

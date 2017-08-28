@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Insan extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses = {"76:1", "76:2", "76:3", "76:4", "76:5", "76:6", "76:7", "76:8", "76:9", "76:10", "76:11", "76:12", "76:13", "76:14", "76:15", "76:16",
-            "76:17", "76:18", "76:19", "76:20", "76:21", "76:22", "76:23", "76:24", "76:25", "76:26", "76:27", "76:28", "76:29", "76:30", "76:31"};
+            "76:17", "76:18", "76:19", "76:20", "76:21", "76:22", "76:23", "76:24", "76:25", "76:26", "76:27", "76:28", "76:29", "76:30", "76:31", ""};
 
     String [] arabic_verses = {"هَلْ أَتَىٰ عَلَى الْإِنسَانِ حِينٌ مِّنَ الدَّهْرِ لَمْ يَكُن شَيْئًا مَّذْكُورًا",
     "إِنَّا خَلَقْنَا الْإِنسَانَ مِن نُّطْفَةٍ أَمْشَاجٍ نَّبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعًا بَصِيرًا",
@@ -51,12 +53,13 @@ public class Al_Insan extends AppCompatActivity {
     "نَّحْنُ خَلَقْنَاهُمْ وَشَدَدْنَا أَسْرَهُمْ ۖ وَإِذَا شِئْنَا بَدَّلْنَا أَمْثَالَهُمْ تَبْدِيلًا",
     "إِنَّ هَٰذِهِ تَذْكِرَةٌ ۖ فَمَن شَاءَ اتَّخَذَ إِلَىٰ رَبِّهِ سَبِيلًا",
     "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ ۚ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا",
-    "يُدْخِلُ مَن يَشَاءُ فِي رَحْمَتِهِ ۚ وَالظَّالِمِينَ أَعَدَّ لَهُمْ عَذَابًا أَلِيمًا"};
+    "يُدْخِلُ مَن يَشَاءُ فِي رَحْمَتِهِ ۚ وَالظَّالِمِينَ أَعَدَّ لَهُمْ عَذَابًا أَلِيمًا",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International"};
+            "Sahih International", ""};
 
     String [] english_verses = {"Has there [not] come upon man a period of time when he was not a thing [even] mentioned?",
     "Indeed, We created man from a sperm-drop mixture that We may try him; and We made him hearing and seeing.",
@@ -88,7 +91,8 @@ public class Al_Insan extends AppCompatActivity {
     "We have created them and strengthened their forms, and when We will, We can change their likenesses with [complete] alteration.",
     "Indeed, this is a reminder, so he who wills may take to his Lord a way.",
     "And you do not will except that Allah wills. Indeed, Allah is ever Knowing and Wise.",
-    "He admits whom He wills into His mercy; but the wrongdoers - He has prepared for them a painful punishment."};
+    "He admits whom He wills into His mercy; but the wrongdoers - He has prepared for them a painful punishment.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +104,9 @@ public class Al_Insan extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

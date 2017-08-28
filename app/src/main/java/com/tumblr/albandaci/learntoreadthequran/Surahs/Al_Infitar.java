@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Infitar extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"82:1", "82:2", "82:3", "82:4", "82:5", "82:6", "82:7", "82:8", "82:9", "82:10", "82:11", "82:12", "82:13", "82:14", "82:15", "82:16",
-            "82:17", "82:18", "82:19"};
+            "82:17", "82:18", "82:19", ""};
 
     String [] arabic_verses = {"إِذَا السَّمَاءُ انفَطَرَتْ",
     "وَإِذَا الْكَوَاكِبُ انتَثَرَتْ",
@@ -39,10 +41,11 @@ public class Al_Infitar extends AppCompatActivity {
     "وَمَا هُمْ عَنْهَا بِغَائِبِينَ",
     "وَمَا أَدْرَاكَ مَا يَوْمُ الدِّينِ",
     "ثُمَّ مَا أَدْرَاكَ مَا يَوْمُ الدِّينِ",
-    "يَوْمَ لَا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْئًا ۖ وَالْأَمْرُ يَوْمَئِذٍ لِّلَّهِ"};
+    "يَوْمَ لَا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْئًا ۖ وَالْأَمْرُ يَوْمَئِذٍ لِّلَّهِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"When the sky breaks apart",
     "And when the stars fall, scattering,",
@@ -62,7 +65,8 @@ public class Al_Infitar extends AppCompatActivity {
     "And never therefrom will they be absent.",
     "And what can make you know what is the Day of Recompense?",
     "Then, what can make you know what is the Day of Recompense?",
-    "It is the Day when a soul will not possess for another soul [power to do] a thing; and the command, that Day, is [entirely] with Allah."};
+    "It is the Day when a soul will not possess for another soul [power to do] a thing; and the command, that Day, is [entirely] with Allah.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,9 @@ public class Al_Infitar extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

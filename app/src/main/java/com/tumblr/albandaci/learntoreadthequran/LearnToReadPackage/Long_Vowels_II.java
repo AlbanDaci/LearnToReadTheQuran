@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Long_Vowels_II_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -14,13 +16,13 @@ public class Long_Vowels_II extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] arabic_letter = {"دَا", "دِي", "دُو", "ذَا", "ذِي", "ذُو", "رَا", "رِي", "رُو", "زَا", "زِي", "زُو", "سَا", "سِي", "سُو", "شَا", "شِي", "شُو", "صَا", "صِي", "صُو"};
+    String [] arabic_letter = {"دَا", "دِي", "دُو", "ذَا", "ذِي", "ذُو", "رَا", "رِي", "رُو", "زَا", "زِي", "زُو", "سَا", "سِي", "سُو", "شَا", "شِي", "شُو", "صَا", "صِي", "صُو", ""};
 
     String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
             "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:",
-            "Transliteration"};
+            "Transliteration", ""};
 
-    String [] english_letter = {"Daa", "Dii", "Duu", "Dhaa", "Dhii", "Dhuu", "Raa", "Rii", "Ruu", "Zaa", "Zii", "Zuu", "Saa", "Sii", "Suu", "Shaa", "Shii", "Shuu", "Ssaa", "Ssii", "Ssuu"};
+    String [] english_letter = {"Daa", "Dii", "Duu", "Dhaa", "Dhii", "Dhuu", "Raa", "Rii", "Ruu", "Zaa", "Zii", "Zuu", "Saa", "Sii", "Suu", "Shaa", "Shii", "Shuu", "Ssaa", "Ssii", "Ssuu", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +34,8 @@ public class Long_Vowels_II extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

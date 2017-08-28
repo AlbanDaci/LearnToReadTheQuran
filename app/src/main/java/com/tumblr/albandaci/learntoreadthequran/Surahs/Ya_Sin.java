@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -23,7 +25,7 @@ public class Ya_Sin extends AppCompatActivity {
             "36:33", "36:34", "36:35", "36:36", "36:37", "36:38", "36:39", "36:40", "36:41", "36:42", "36:43", "36:44", "36:45", "36:46", "36:47", "36:48",
             "36:49", "36:50", "36:51", "36:52", "36:53", "36:54", "36:55", "36:56", "36:57", "36:58", "36:59", "36:60", "36:61", "36:62", "36:63", "36:64",
             "36:65", "36:66", "36:67", "36:68", "36:69", "36:70", "36:71", "36:72", "36:73", "36:74", "36:75", "36:76", "36:77", "36:78", "36:79", "36:80",
-            "36:81", "36:82", "36:83"};
+            "36:81", "36:82", "36:83", ""};
 
     String [] arabic_verses = {"يس",
     "وَالْقُرْآنِ الْحَكِيمِ",
@@ -107,7 +109,8 @@ public class Ya_Sin extends AppCompatActivity {
     "الَّذِي جَعَلَ لَكُم مِّنَ الشَّجَرِ الْأَخْضَرِ نَارًا فَإِذَا أَنتُم مِّنْهُ تُوقِدُونَ",
     "أَوَلَيْسَ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ بِقَادِرٍ عَلَىٰ أَن يَخْلُقَ مِثْلَهُم ۚ بَلَىٰ وَهُوَ الْخَلَّاقُ الْعَلِيمُ",
     "إِنَّمَا أَمْرُهُ إِذَا أَرَادَ شَيْئًا أَن يَقُولَ لَهُ كُن فَيَكُونُ",
-    "فَسُبْحَانَ الَّذِي بِيَدِهِ مَلَكُوتُ كُلِّ شَيْءٍ وَإِلَيْهِ تُرْجَعُونَ"};
+    "فَسُبْحَانَ الَّذِي بِيَدِهِ مَلَكُوتُ كُلِّ شَيْءٍ وَإِلَيْهِ تُرْجَعُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -117,7 +120,7 @@ public class Ya_Sin extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Ya, Seen.",
     "By the wise Qur'an.",
@@ -201,7 +204,8 @@ public class Ya_Sin extends AppCompatActivity {
     "[It is] He who made for you from the green tree, fire, and then from it you ignite.",
     "Is not He who created the heavens and the earth Able to create the likes of them? Yes, [it is so]; and He is the Knowing Creator.",
     "His command is only when He intends a thing that He says to it, \"Be,\" and it is.",
-    "So exalted is He in whose hand is the realm of all things, and to Him you will be returned."};
+    "So exalted is He in whose hand is the realm of all things, and to Him you will be returned.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,6 +217,9 @@ public class Ya_Sin extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

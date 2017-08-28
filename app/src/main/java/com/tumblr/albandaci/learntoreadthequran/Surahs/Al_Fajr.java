@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Fajr extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"89:1", "89:2", "89:3", "89:4", "89:5", "89:6", "89:7", "89:8", "89:9", "89:10", "89:11", "89:12", "89:13", "89:14", "89:15", "89:16",
-            "89:17", "89:18", "89:19", "89:20", "89:21", "89:22", "89:23", "89:24", "89:25", "89:26", "89:27", "89:28", "89:29", "89:30"};
+            "89:17", "89:18", "89:19", "89:20", "89:21", "89:22", "89:23", "89:24", "89:25", "89:26", "89:27", "89:28", "89:29", "89:30", ""};
 
     String [] arabic_verses = {"وَالْفَجْرِ",
     "وَلَيَالٍ عَشْرٍ",
@@ -50,11 +52,12 @@ public class Al_Fajr extends AppCompatActivity {
     "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
     "ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
     "فَادْخُلِي فِي عِبَادِي",
-    "وَادْخُلِي جَنَّتِي"};
+    "وَادْخُلِي جَنَّتِي",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the dawn",
     "And [by] ten nights",
@@ -85,7 +88,8 @@ public class Al_Fajr extends AppCompatActivity {
     "[To the righteous it will be said], \"O reassured soul,",
     "Return to your Lord, well-pleased and pleasing [to Him],",
     "And enter among My [righteous] servants",
-    "And enter My Paradise.\""};
+    "And enter My Paradise.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,9 @@ public class Al_Fajr extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

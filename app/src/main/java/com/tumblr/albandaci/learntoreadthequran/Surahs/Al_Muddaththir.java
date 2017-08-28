@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Al_Muddaththir extends AppCompatActivity {
     String [] verses = {"74:1", "74:2", "74:3", "74:4", "74:5", "74:6", "74:7", "74:8", "74:9", "74:10", "74:11", "74:12", "74:13", "74:14", "74:15", "74:16",
             "74:17", "74:18", "74:19", "74:20", "74:21", "74:22", "74:23", "74:24", "74:25", "74:26", "74:27", "74:28", "74:29", "74:30", "74:31", "74:32",
             "74:33", "74:34", "74:35", "74:36", "74:37", "74:38", "74:39", "74:40", "74:41", "74:42", "74:43", "74:44", "74:45", "74:46", "74:47", "74:48",
-            "74:49", "74:50", "74:51", "74:52", "74:53", "74:54", "74:55", "74:56"};
+            "74:49", "74:50", "74:51", "74:52", "74:53", "74:54", "74:55", "74:56", ""};
 
     String [] arabic_verses = {"يَا أَيُّهَا الْمُدَّثِّرُ",
     "قُمْ فَأَنذِرْ",
@@ -78,14 +80,15 @@ public class Al_Muddaththir extends AppCompatActivity {
     "كَلَّا ۖ بَل لَّا يَخَافُونَ الْآخِرَةَ",
     "كَلَّا إِنَّهُ تَذْكِرَةٌ",
     "فَمَن شَاءَ ذَكَرَهُ",
-    "وَمَا يَذْكُرُونَ إِلَّا أَن يَشَاءَ اللَّهُ ۚ هُوَ أَهْلُ التَّقْوَىٰ وَأَهْلُ الْمَغْفِرَةِ"};
+    "وَمَا يَذْكُرُونَ إِلَّا أَن يَشَاءَ اللَّهُ ۚ هُوَ أَهْلُ التَّقْوَىٰ وَأَهْلُ الْمَغْفِرَةِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"O you who covers himself [with a garment],",
     "Arise and warn",
@@ -142,7 +145,8 @@ public class Al_Muddaththir extends AppCompatActivity {
     "No! But they do not fear the Hereafter.",
     "No! Indeed, the Qur'an is a reminder",
     "Then whoever wills will remember it.",
-    "And they will not remember except that Allah wills. He is worthy of fear and adequate for [granting] forgiveness."};
+    "And they will not remember except that Allah wills. He is worthy of fear and adequate for [granting] forgiveness.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +158,9 @@ public class Al_Muddaththir extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

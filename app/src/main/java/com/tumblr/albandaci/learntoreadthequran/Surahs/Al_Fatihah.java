@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -22,7 +24,7 @@ public class Al_Fatihah extends AppCompatActivity {
     private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_fatihah.mp3";
     private MediaPlayer mediaPlayer;
 
-    String [] verses = {"1:1", "1:2", "1:3", "1:4", "1:5", "1:6", "1:7"};
+    String [] verses = {"1:1", "1:2", "1:3", "1:4", "1:5", "1:6", "1:7", ""};
 
     String [] arabic_verses = {"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
             "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
@@ -30,9 +32,10 @@ public class Al_Fatihah extends AppCompatActivity {
             "مَالِكِ يَوْمِ الدِّينِ",
             "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
             "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-            "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"};
+            "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+            ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"In the name of Allah, the Entirely Merciful, the Especially Merciful.",
             "[All] praise is [due] to Allah, Lord of the worlds -",
@@ -40,7 +43,8 @@ public class Al_Fatihah extends AppCompatActivity {
             "Sovereign of the Day of Recompense.",
             "It is You we worship and You we ask for help.",
              "Guide us to the straight path -",
-            "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray."};
+            "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+            ""};
 
 
     @Override
@@ -54,6 +58,9 @@ public class Al_Fatihah extends AppCompatActivity {
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
         mediaPlayer = new MediaPlayer();
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,19 +20,21 @@ public class Al_Ikhlas extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"112:1", "112:2", "112:3", "112:4"};
+    String [] verses  = {"112:1", "112:2", "112:3", "112:4", ""};
 
     String [] arabic_verses = {"قُلْ هُوَ اللَّهُ أَحَدٌ",
     "اللَّهُ الصَّمَدُ",
     "لَمْ يَلِدْ وَلَمْ يُولَدْ",
-    "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ"};
+    "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Say, \"He is Allah, [who is] One,",
     "Allah, the Eternal Refuge.",
     "He neither begets nor is born,",
-    "Nor is there to Him any equivalent.\""};
+    "Nor is there to Him any equivalent.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,9 @@ public class Al_Ikhlas extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

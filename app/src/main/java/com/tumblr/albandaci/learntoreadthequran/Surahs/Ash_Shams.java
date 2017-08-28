@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class Ash_Shams extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"91:1", "91:2", "91:3", "91:4", "91:5", "91:6", "91:7", "91:8", "91:9", "91:10", "91:11", "91:12", "91:13", "91:14", "91:15"};
+    String [] verses  = {"91:1", "91:2", "91:3", "91:4", "91:5", "91:6", "91:7", "91:8", "91:9", "91:10", "91:11", "91:12", "91:13", "91:14", "91:15", ""};
 
     String [] arabic_verses = {"وَالشَّمْسِ وَضُحَاهَا",
     "وَالْقَمَرِ إِذَا تَلَاهَا",
@@ -34,10 +36,11 @@ public class Ash_Shams extends AppCompatActivity {
     "إِذِ انبَعَثَ أَشْقَاهَا",
     "فَقَالَ لَهُمْ رَسُولُ اللَّهِ نَاقَةَ اللَّهِ وَسُقْيَاهَا",
     "فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنبِهِمْ فَسَوَّاهَا",
-    "وَلَا يَخَافُ عُقْبَاهَا"};
+    "وَلَا يَخَافُ عُقْبَاهَا",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the sun and its brightness",
     "And [by] the moon when it follows it",
@@ -53,7 +56,8 @@ public class Ash_Shams extends AppCompatActivity {
     "When the most wretched of them was sent forth.",
     "And the messenger of Allah [Salih] said to them, \"[Do not harm] the she-camel of Allah or [prevent her from] her drink.\"",
     "But they denied him and hamstrung her. So their Lord brought down upon them destruction for their sin and made it equal [upon all of them].",
-    "And He does not fear the consequence thereof."};
+    "And He does not fear the consequence thereof.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,9 @@ public class Ash_Shams extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

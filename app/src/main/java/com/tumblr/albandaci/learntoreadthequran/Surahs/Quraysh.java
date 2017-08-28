@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,19 +20,21 @@ public class Quraysh extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"106:1", "106:2", "106:3", "106:4"};
+    String [] verses  = {"106:1", "106:2", "106:3", "106:4", ""};
 
     String [] arabic_verses = {"لِإِيلَافِ قُرَيْشٍ",
     "إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ",
     "فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ",
-    "الَّذِي أَطْعَمَهُم مِّن جُوعٍ وَآمَنَهُم مِّنْ خَوْفٍ"};
+    "الَّذِي أَطْعَمَهُم مِّن جُوعٍ وَآمَنَهُم مِّنْ خَوْفٍ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"For the accustomed security of the Quraysh -",
     "Their accustomed security [in] the caravan of winter and summer -",
     "Let them worship the Lord of this House,",
-    "Who has fed them, [saving them] from hunger and made them safe, [saving them] from fear."};
+    "Who has fed them, [saving them] from hunger and made them safe, [saving them] from fear.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,9 @@ public class Quraysh extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

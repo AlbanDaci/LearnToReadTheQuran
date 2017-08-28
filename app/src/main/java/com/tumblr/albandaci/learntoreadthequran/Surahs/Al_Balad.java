@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Balad extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"90:1", "90:2", "90:3", "90:4", "90:5", "90:6", "90:7", "90:8", "90:9", "90:10", "90:11", "90:12", "90:13", "90:14", "90:15", "90:16",
-            "90:17", "90:18", "90:19", "90:20"};
+            "90:17", "90:18", "90:19", "90:20", ""};
 
     String [] arabic_verses = {"لَا أُقْسِمُ بِهَٰذَا الْبَلَدِ",
     "وَأَنتَ حِلٌّ بِهَٰذَا الْبَلَدِ",
@@ -40,10 +42,11 @@ public class Al_Balad extends AppCompatActivity {
     "ثُمَّ كَانَ مِنَ الَّذِينَ آمَنُوا وَتَوَاصَوْا بِالصَّبْرِ وَتَوَاصَوْا بِالْمَرْحَمَةِ",
     "أُولَٰئِكَ أَصْحَابُ الْمَيْمَنَةِ",
     "وَالَّذِينَ كَفَرُوا بِآيَاتِنَا هُمْ أَصْحَابُ الْمَشْأَمَةِ",
-    "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌ"};
+    "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"I swear by this city, Makkah -",
     "And you, [O Muhammad], are free of restriction in this city -",
@@ -64,7 +67,8 @@ public class Al_Balad extends AppCompatActivity {
     "And then being among those who believed and advised one another to patience and advised one another to compassion.",
     "Those are the companions of the right.",
     "But they who disbelieved in Our signs - those are the companions of the left.",
-    "Over them will be fire closed in."};
+    "Over them will be fire closed in.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,9 @@ public class Al_Balad extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class Ar_Rum extends AppCompatActivity {
     String [] verses = {"30:1", "30:2", "30:3", "30:4", "30:5", "30:6", "30:7", "30:8", "30:9", "30:10", "30:11", "30:12", "30:13", "30:14", "30:15", "30:16",
             "30:17", "30:18", "30:19", "30:20", "30:21", "30:22", "30:23", "30:24", "30:25", "30:26", "30:27", "30:28", "30:29", "30:30", "30:31", "30:32",
             "30:33", "30:34", "30:35", "30:36", "30:37", "30:38", "30:39", "30:40", "30:41", "30:42", "30:43", "30:44", "30:45", "30:46", "30:47", "30:48",
-            "30:49", "30:50", "30:51", "30:52", "30:53", "30:54", "30:55", "30:56", "30:57", "30:58", "30:59", "30:60"};
+            "30:49", "30:50", "30:51", "30:52", "30:53", "30:54", "30:55", "30:56", "30:57", "30:58", "30:59", "30:60", ""};
 
     String [] arabic_verses = {"الم",
     "غُلِبَتِ الرُّومُ",
@@ -82,14 +84,15 @@ public class Ar_Rum extends AppCompatActivity {
     "فَيَوْمَئِذٍ لَّا يَنفَعُ الَّذِينَ ظَلَمُوا مَعْذِرَتُهُمْ وَلَا هُمْ يُسْتَعْتَبُونَ",
     "وَلَقَدْ ضَرَبْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ ۚ وَلَئِن جِئْتَهُم بِآيَةٍ لَّيَقُولَنَّ الَّذِينَ كَفَرُوا إِنْ أَنتُمْ إِلَّا مُبْطِلُونَ",
     "كَذَٰلِكَ يَطْبَعُ اللَّهُ عَلَىٰ قُلُوبِ الَّذِينَ لَا يَعْلَمُونَ",
-    "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ ۖ وَلَا يَسْتَخِفَّنَّكَ الَّذِينَ لَا يُوقِنُونَ"};
+    "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ ۖ وَلَا يَسْتَخِفَّنَّكَ الَّذِينَ لَا يُوقِنُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Alif, Lam, Meem.",
     "The Byzantines have been defeated",
@@ -150,7 +153,8 @@ public class Ar_Rum extends AppCompatActivity {
     "So that Day, their excuse will not benefit those who wronged, nor will they be asked to appease [Allah].",
     "And We have certainly presented to the people in this Qur'an from every [kind of] example. But, [O Muhammad], if you should bring them a sign, the disbelievers will surely say, \"You [believers] are but falsifiers.\"",
     "Thus does Allah seal the hearts of those who do not know.",
-    "So be patient. Indeed, the promise of Allah is truth. And let them not disquiet you who are not certain [in faith]."};
+    "So be patient. Indeed, the promise of Allah is truth. And let them not disquiet you who are not certain [in faith].",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +166,9 @@ public class Ar_Rum extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

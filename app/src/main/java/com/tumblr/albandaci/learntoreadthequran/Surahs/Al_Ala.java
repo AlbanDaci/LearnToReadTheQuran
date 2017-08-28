@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class Al_Ala extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"87:1", "87:2", "87:3", "87:4", "87:5", "87:6", "87:7", "87:8", "87:9", "87:10", "87:11", "87:12", "87:13", "87:14", "87:15", "87:16",
-            "87:17", "87:18", "87:19"};
+            "87:17", "87:18", "87:19", ""};
 
     String [] arabic_verses = {"سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى",
     "الَّذِي خَلَقَ فَسَوَّىٰ",
@@ -39,10 +41,11 @@ public class Al_Ala extends AppCompatActivity {
     "بَلْ تُؤْثِرُونَ الْحَيَاةَ الدُّنْيَا",
     "وَالْآخِرَةُ خَيْرٌ وَأَبْقَىٰ",
     "إِنَّ هَٰذَا لَفِي الصُّحُفِ الْأُولَىٰ",
-    "صُحُفِ إِبْرَاهِيمَ وَمُوسَىٰ"};
+    "صُحُفِ إِبْرَاهِيمَ وَمُوسَىٰ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Exalt the name of your Lord, the Most High,",
     "Who created and proportioned",
@@ -62,7 +65,8 @@ public class Al_Ala extends AppCompatActivity {
     "But you prefer the worldly life,",
     "While the Hereafter is better and more enduring.",
     "Indeed, this is in the former scriptures,",
-    "The scriptures of Abraham and Moses."};
+    "The scriptures of Abraham and Moses.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,9 @@ public class Al_Ala extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

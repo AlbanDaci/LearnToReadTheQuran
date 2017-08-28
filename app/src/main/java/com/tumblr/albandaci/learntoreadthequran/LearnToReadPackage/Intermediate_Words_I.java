@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Intermediate_Words_I_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -14,11 +16,11 @@ public class Intermediate_Words_I extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] arabic_letter = {"أَبَى", "أَتَى", "جَرَى", "دَعَا", "بَرِئَ", "رَأَى", "أَرَى", "رَمَى", "رَوَى", "وَقَى"};
+    String [] arabic_letter = {"أَبَى", "أَتَى", "جَرَى", "دَعَا", "بَرِئَ", "رَأَى", "أَرَى", "رَمَى", "رَوَى", "وَقَى", ""};
 
-    String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:"};
+    String [] transliteration = {"Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", "Transliteration:", ""};
 
-    String [] english_letter = {"A-baa", "A-taa", "Ja-raa", "Da-'aa", "Ba-ri-a", "Ra-aa", "A-raa", "Ra-maa", "Ra-waa", "Wa-qaa"};
+    String [] english_letter = {"A-baa", "A-taa", "Ja-raa", "Da-'aa", "Ba-ri-a", "Ra-aa", "A-raa", "Ra-maa", "Ra-waa", "Wa-qaa", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +32,8 @@ public class Intermediate_Words_I extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

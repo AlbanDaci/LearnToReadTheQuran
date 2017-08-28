@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -20,7 +22,7 @@ public class Al_Maarij extends AppCompatActivity {
 
     String [] verses = {"70:1", "70:2", "70:3", "70:4", "70:5", "70:6", "70:7", "70:8", "70:9", "70:10", "70:11", "70:12", "70:13", "70:14", "70:15", "70:16",
             "70:17", "70:18", "70:19", "70:20", "70:21", "70:22", "70:23", "70:24", "70:25", "70:26", "70:27", "70:28", "70:29", "70:30", "70:31", "70:32",
-            "70:33", "70:34", "70:35", "70:36", "70:37", "70:38", "70:39", "70:40", "70:41", "70:42", "70:43", "70:44"};
+            "70:33", "70:34", "70:35", "70:36", "70:37", "70:38", "70:39", "70:40", "70:41", "70:42", "70:43", "70:44", ""};
 
     String [] arabic_verses = {"سَأَلَ سَائِلٌ بِعَذَابٍ وَاقِعٍ",
     "لِّلْكَافِرِينَ لَيْسَ لَهُ دَافِعٌ",
@@ -65,13 +67,14 @@ public class Al_Maarij extends AppCompatActivity {
     "عَلَىٰ أَن نُّبَدِّلَ خَيْرًا مِّنْهُمْ وَمَا نَحْنُ بِمَسْبُوقِينَ",
     "فَذَرْهُمْ يَخُوضُوا وَيَلْعَبُوا حَتَّىٰ يُلَاقُوا يَوْمَهُمُ الَّذِي يُوعَدُونَ",
     "يَوْمَ يَخْرُجُونَ مِنَ الْأَجْدَاثِ سِرَاعًا كَأَنَّهُمْ إِلَىٰ نُصُبٍ يُوفِضُونَ",
-    "خَاشِعَةً أَبْصَارُهُمْ تَرْهَقُهُمْ ذِلَّةٌ ۚ ذَٰلِكَ الْيَوْمُ الَّذِي كَانُوا يُوعَدُونَ"};
+    "خَاشِعَةً أَبْصَارُهُمْ تَرْهَقُهُمْ ذِلَّةٌ ۚ ذَٰلِكَ الْيَوْمُ الَّذِي كَانُوا يُوعَدُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"A supplicant asked for a punishment bound to happen",
     "To the disbelievers; of it there is no preventer.",
@@ -116,7 +119,8 @@ public class Al_Maarij extends AppCompatActivity {
     "To replace them with better than them; and We are not to be outdone.",
     "So leave them to converse vainly and amuse themselves until they meet their Day which they are promised -",
     "The Day they will emerge from the graves rapidly as if they were, toward an erected idol, hastening.",
-    "Their eyes humbled, humiliation will cover them. That is the Day which they had been promised."};
+    "Their eyes humbled, humiliation will cover them. That is the Day which they had been promised.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +132,9 @@ public class Al_Maarij extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

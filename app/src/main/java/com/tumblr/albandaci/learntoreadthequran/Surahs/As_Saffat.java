@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -29,7 +31,7 @@ public class As_Saffat extends AppCompatActivity {
             "37:129", "37:130", "37:131", "37:132", "37:133", "37:134", "37:135", "37:136", "37:137", "37:138", "37:139", "37:140", "37:141", "37:142", "37:143", "37:144",
             "37:145", "37:146", "37:147", "37:148", "37:149", "37:150", "37:151", "37:152", "37:153", "37:154", "37:155", "37:156", "37:157", "37:158", "37:159", "37:160",
             "37:161", "37:162", "37:163", "37:164", "37:165", "37:166", "37:167", "37:168", "37:169", "37:170", "37:171", "37:172", "37:173", "37:174", "37:175", "37:176",
-            "37:177", "37:178", "37:179", "37:180", "37:181", "37:182"};
+            "37:177", "37:178", "37:179", "37:180", "37:181", "37:182", ""};
 
     String [] arabic_verses = {"وَالصَّافَّاتِ صَفًّا",
     "فَالزَّاجِرَاتِ زَجْرًا",
@@ -212,7 +214,8 @@ public class As_Saffat extends AppCompatActivity {
     "وَأَبْصِرْ فَسَوْفَ يُبْصِرُونَ",
     "سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ",
     "وَسَلَامٌ عَلَى الْمُرْسَلِينَ",
-    "وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"};
+    "وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -232,7 +235,7 @@ public class As_Saffat extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By those [angels] lined up in rows",
     "And those who drive [the clouds]",
@@ -415,7 +418,8 @@ public class As_Saffat extends AppCompatActivity {
     "And see, for they are going to see.",
     "Exalted is your Lord, the Lord of might, above what they describe.",
     "And peace upon the messengers.",
-    "And praise to Allah, Lord of the worlds."};
+    "And praise to Allah, Lord of the worlds.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -427,6 +431,9 @@ public class As_Saffat extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

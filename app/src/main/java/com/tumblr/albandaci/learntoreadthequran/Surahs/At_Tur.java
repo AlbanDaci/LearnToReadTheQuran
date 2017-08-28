@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -21,7 +23,7 @@ public class At_Tur extends AppCompatActivity {
     String [] verses = {"52:1", "52:2", "52:3", "52:4", "52:5", "52:6", "52:7", "52:8", "52:9", "52:10", "52:11", "52:12", "52:13", "52:14", "52:15", "52:16",
             "52:17", "52:18", "52:19", "52:20", "52:21", "52:22", "52:23", "52:24", "52:25", "52:26", "52:27", "52:28", "52:29", "52:30", "52:31", "52:32",
             "52:33", "52:34", "52:35", "52:36", "52:37", "52:38", "52:39", "52:40", "52:41", "52:42", "52:43", "52:44", "52:45", "52:46", "52:47", "52:48",
-            "52:49"};
+            "52:49", ""};
 
     String [] arabic_verses = {"وَالطُّورِ",
     "وَكِتَابٍ مَّسْطُورٍ",
@@ -71,13 +73,14 @@ public class At_Tur extends AppCompatActivity {
     "يَوْمَ لَا يُغْنِي عَنْهُمْ كَيْدُهُمْ شَيْئًا وَلَا هُمْ يُنصَرُونَ",
     "وَإِنَّ لِلَّذِينَ ظَلَمُوا عَذَابًا دُونَ ذَٰلِكَ وَلَٰكِنَّ أَكْثَرَهُمْ لَا يَعْلَمُونَ",
     "وَاصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا ۖ وَسَبِّحْ بِحَمْدِ رَبِّكَ حِينَ تَقُومُ",
-    "وَمِنَ اللَّيْلِ فَسَبِّحْهُ وَإِدْبَارَ النُّجُومِ"};
+    "وَمِنَ اللَّيْلِ فَسَبِّحْهُ وَإِدْبَارَ النُّجُومِ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the mount",
     "And [by] a Book inscribed",
@@ -127,7 +130,8 @@ public class At_Tur extends AppCompatActivity {
     "The Day their plan will not avail them at all, nor will they be helped.",
     "And indeed, for those who have wronged is a punishment before that, but most of them do not know.",
     "And be patient, [O Muhammad], for the decision of your Lord, for indeed, you are in Our eyes. And exalt [Allah] with praise of your Lord when you arise.",
-    "And in a part of the night exalt Him and after [the setting of] the stars."};
+    "And in a part of the night exalt Him and after [the setting of] the stars.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +143,9 @@ public class At_Tur extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

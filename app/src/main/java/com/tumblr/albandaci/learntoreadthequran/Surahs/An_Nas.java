@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,23 +20,25 @@ public class An_Nas extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"114:1", "114:2", "114:3", "114:4", "114:5", "114:6"};
+    String [] verses  = {"114:1", "114:2", "114:3", "114:4", "114:5", "114:6", ""};
 
     String [] arabic_verses = {"قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
     "مَلِكِ النَّاسِ",
     "إِلَٰهِ النَّاسِ",
     "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
     "الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ",
-    "مِنَ الْجِنَّةِ وَالنَّاسِ"};
+    "مِنَ الْجِنَّةِ وَالنَّاسِ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Say, \"I seek refuge in the Lord of mankind,",
     "The Sovereign of mankind.",
     "The God of mankind,",
     "From the evil of the retreating whisperer -",
     "Who whispers [evil] into the breasts of mankind -",
-    "From among the jinn and mankind.\""};
+    "From among the jinn and mankind.\"",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class An_Nas extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

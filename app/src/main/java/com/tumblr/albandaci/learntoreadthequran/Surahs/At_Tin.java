@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class At_Tin extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"95:1", "95:2", "95:3", "95:4", "95:5", "95:6", "95:7", "95:8"};
+    String [] verses  = {"95:1", "95:2", "95:3", "95:4", "95:5", "95:6", "95:7", "95:8", ""};
 
     String [] arabic_verses = {"وَالتِّينِ وَالزَّيْتُونِ",
     "وَطُورِ سِينِينَ",
@@ -27,9 +29,10 @@ public class At_Tin extends AppCompatActivity {
     "ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ",
     "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ",
     "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",
-    "أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ"};
+    "أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ",
+    ""};
 
-    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+    String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the fig and the olive",
     "And [by] Mount Sinai",
@@ -38,7 +41,8 @@ public class At_Tin extends AppCompatActivity {
     "Then We return him to the lowest of the low,",
     "Except for those who believe and do righteous deeds, for they will have a reward uninterrupted.",
     "So what yet causes you to deny the Recompense?",
-    "Is not Allah the most just of judges?"};
+    "Is not Allah the most just of judges?",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,9 @@ public class At_Tin extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -18,7 +20,7 @@ public class Ad_Duhaa extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String [] verses  = {"93:1", "93:2", "93:3", "93:4", "93:5", "93:6", "93:7", "93:8", "93:9", "93:10", "93:11"};
+    String [] verses  = {"93:1", "93:2", "93:3", "93:4", "93:5", "93:6", "93:7", "93:8", "93:9", "93:10", "93:11", ""};
 
     String [] arabic_verses = {"وَالضُّحَىٰ",
     "وَاللَّيْلِ إِذَا سَجَىٰ",
@@ -30,10 +32,11 @@ public class Ad_Duhaa extends AppCompatActivity {
     "وَوَجَدَكَ عَائِلًا فَأَغْنَىٰ",
     "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ",
     "وَأَمَّا السَّائِلَ فَلَا تَنْهَرْ",
-    "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"};
+    "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International"};
+            "Sahih International", ""};
 
     String [] english_verses = {"By the morning brightness",
     "And [by] the night when it covers with darkness,",
@@ -45,7 +48,8 @@ public class Ad_Duhaa extends AppCompatActivity {
     "And He found you poor and made [you] self-sufficient.",
     "So as for the orphan, do not oppress [him].",
     "And as for the petitioner, do not repel [him].",
-    "But as for the favor of your Lord, report [it]."};
+    "But as for the favor of your Lord, report [it].",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class Ad_Duhaa extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

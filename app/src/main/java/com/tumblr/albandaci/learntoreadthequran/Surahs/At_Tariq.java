@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -19,7 +21,7 @@ public class At_Tariq extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     String [] verses  = {"86:1", "86:2", "86:3", "86:4", "86:5", "86:6", "86:7", "86:8", "86:9", "86:10", "86:11", "86:12", "86:13", "86:14", "86:15", "86:16",
-            "86:17"};
+            "86:17", ""};
 
     String [] arabic_verses = {"وَالسَّمَاءِ وَالطَّارِقِ",
     "وَمَا أَدْرَاكَ مَا الطَّارِقُ",
@@ -37,10 +39,11 @@ public class At_Tariq extends AppCompatActivity {
     "وَمَا هُوَ بِالْهَزْلِ",
     "إِنَّهُمْ يَكِيدُونَ كَيْدًا",
     "وَأَكِيدُ كَيْدًا",
-    "فَمَهِّلِ الْكَافِرِينَ أَمْهِلْهُمْ رُوَيْدًا"};
+    "فَمَهِّلِ الْكَافِرِينَ أَمْهِلْهُمْ رُوَيْدًا",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"By the sky and the night comer -",
     "And what can make you know what is the night comer?",
@@ -58,7 +61,8 @@ public class At_Tariq extends AppCompatActivity {
     "And it is not amusement.",
     "Indeed, they are planning a plan,",
     "But I am planning a plan.",
-    "So allow time for the disbelievers. Leave them awhile."};
+    "So allow time for the disbelievers. Leave them awhile.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,9 @@ public class At_Tariq extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
@@ -23,7 +25,7 @@ public class Az_Zukhruf extends AppCompatActivity {
             "43:33", "43:34", "43:35", "43:36", "43:37", "43:38", "43:39", "43:40", "43:41", "43:42", "43:43", "43:44", "43:45", "43:46", "43:47", "43:48",
             "43:49", "43:50", "43:51", "43:52", "43:53", "43:54", "43:55", "43:56", "43:57", "43:58", "43:59", "43:60", "43:61", "43:62", "43:63", "43:64",
             "43:65", "43:66", "43:67", "43:68", "43:69", "43:70", "43:71", "43:72", "43:73", "43:74", "43:75", "43:76", "43:77", "43:78", "43:79", "43:80",
-            "43:81", "43:82", "43:83", "43:84", "43:85", "43:86", "43:87", "43:88", "43:89"};
+            "43:81", "43:82", "43:83", "43:84", "43:85", "43:86", "43:87", "43:88", "43:89", ""};
 
     String [] arabic_verses = {"حم",
     "وَالْكِتَابِ الْمُبِينِ",
@@ -113,7 +115,8 @@ public class Az_Zukhruf extends AppCompatActivity {
     "وَلَا يَمْلِكُ الَّذِينَ يَدْعُونَ مِن دُونِهِ الشَّفَاعَةَ إِلَّا مَن شَهِدَ بِالْحَقِّ وَهُمْ يَعْلَمُونَ",
     "وَلَئِن سَأَلْتَهُم مَّنْ خَلَقَهُمْ لَيَقُولُنَّ اللَّهُ ۖ فَأَنَّىٰ يُؤْفَكُونَ",
     "وَقِيلِهِ يَا رَبِّ إِنَّ هَٰؤُلَاءِ قَوْمٌ لَّا يُؤْمِنُونَ",
-    "فَاصْفَحْ عَنْهُمْ وَقُلْ سَلَامٌ ۚ فَسَوْفَ يَعْلَمُونَ"};
+    "فَاصْفَحْ عَنْهُمْ وَقُلْ سَلَامٌ ۚ فَسَوْفَ يَعْلَمُونَ",
+    ""};
 
     String [] sahih_international = {"Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
@@ -123,7 +126,7 @@ public class Az_Zukhruf extends AppCompatActivity {
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
             "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International",
-            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International"};
+            "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", "Sahih International", ""};
 
     String [] english_verses = {"Ha, Meem.",
     "By the clear Book,",
@@ -213,7 +216,8 @@ public class Az_Zukhruf extends AppCompatActivity {
     "And those they invoke besides Him do not possess [power of] intercession; but only those who testify to the truth [can benefit], and they know.",
     "And if you asked them who created them, they would surely say, \"Allah.\" So how are they deluded?",
     "And [Allah acknowledges] his saying, \"O my Lord, indeed these are a people who do not believe.\"",
-    "So turn aside from them and say, \"Peace.\" But they are going to know."};
+    "So turn aside from them and say, \"Peace.\" But they are going to know.",
+    ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,6 +229,9 @@ public class Az_Zukhruf extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize (true);
         recyclerView.setAdapter (adapter);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
