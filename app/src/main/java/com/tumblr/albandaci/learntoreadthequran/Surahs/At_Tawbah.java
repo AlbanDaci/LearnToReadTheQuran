@@ -21,7 +21,7 @@ public class At_Tawbah extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_at_tawbah.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/009.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"9:1", "9:2", "9:3", "9:4", "9:5", "9:6", "9:7", "9:8", "9:9", "9:10", "9:11", "9:12", "9:13", "9:14", "9:15", "9:16",

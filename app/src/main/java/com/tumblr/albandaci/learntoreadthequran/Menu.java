@@ -69,7 +69,7 @@ public class Menu extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=PackageName")));
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.tumblr.albandaci.learntoreadthequran")));
                     }
                 }
         );

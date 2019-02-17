@@ -21,7 +21,7 @@ public class Yunus extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_yunus.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/010.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"10:1", "10:2", "10:3", "10:4", "10:5", "10:6", "10:7", "10:8", "10:9", "10:10", "10:11", "10:12", "10:13", "10:14", "10:15", "10:16",

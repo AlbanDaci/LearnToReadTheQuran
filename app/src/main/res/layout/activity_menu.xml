@@ -22,7 +22,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="75dp"
             android:src="@drawable/logo2" />
 
         <Button
@@ -30,7 +30,7 @@
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@android:drawable/screen_background_dark_transparent"
             android:text="Learn To Read"
             android:textColor="#ffffff"

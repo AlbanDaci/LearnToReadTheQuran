@@ -21,7 +21,7 @@ public class Al_Maidah extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_maidah.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/005.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"5:1", "5:2", "5:3", "5:4", "5:5", "5:6", "5:7", "5:8", "5:9", "5:10", "5:11", "5:12", "5:13", "5:14", "5:15", "5:16",

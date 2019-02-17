@@ -21,7 +21,7 @@ public class Al_Araf extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://www.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_araf.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/007.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"7:1", "7:2", "7:3", "7:4", "7:5", "7:6", "7:7", "7:8", "7:9", "7:10", "7:11", "7:12", "7:13", "7:14", "7:15", "7:16",

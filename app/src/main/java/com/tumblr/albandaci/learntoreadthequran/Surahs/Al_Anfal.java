@@ -21,7 +21,7 @@ public class Al_Anfal extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://www.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_anfal.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/008.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"8:1", "8:2", "8:3", "8:4", "8:5", "8:6", "8:7", "8:8", "8:9", "8:10", "8:11", "8:12", "8:13", "8:14", "8:15", "8:16",

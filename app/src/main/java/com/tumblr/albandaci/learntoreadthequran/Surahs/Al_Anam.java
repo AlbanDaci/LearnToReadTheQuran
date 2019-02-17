@@ -21,7 +21,7 @@ public class Al_Anam extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_anam.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/006.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"6:1", "6:2", "6:3", "6:4", "6:5", "6:6", "6:7", "6:8", "6:9", "6:10", "6:11", "6:12", "6:13", "6:14", "6:15", "6:16",

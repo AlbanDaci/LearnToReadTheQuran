@@ -21,7 +21,7 @@ public class An_Nisa extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_an_nisa.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/004.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"4:1", "4:2", "4:3", "4:4", "4:5", "4:6", "4:7", "4:8", "4:9", "4:10", "4:11", "4:12", "4:13", "4:14", "4:15", "4:16",

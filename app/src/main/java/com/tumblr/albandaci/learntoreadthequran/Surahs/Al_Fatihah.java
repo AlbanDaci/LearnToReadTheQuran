@@ -21,7 +21,7 @@ public class Al_Fatihah extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_fatihah.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/001.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"1:1", "1:2", "1:3", "1:4", "1:5", "1:6", "1:7", ""};

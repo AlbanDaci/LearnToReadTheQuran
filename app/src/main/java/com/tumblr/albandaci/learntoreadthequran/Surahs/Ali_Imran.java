@@ -21,7 +21,7 @@ public class Ali_Imran extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String URL1 = "http://download.audioislam.com/audio/quran/recitation/al-afaasee/surah_al_imran.mp3";
+    private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/003.mp3";
     private MediaPlayer mediaPlayer;
 
     String [] verses = {"3:1", "3:2", "3:3", "3:4", "3:5", "3:6", "3:7", "3:8", "3:9", "3:10", "3:11", "3:12", "3:13", "3:14", "3:15", "3:16",
