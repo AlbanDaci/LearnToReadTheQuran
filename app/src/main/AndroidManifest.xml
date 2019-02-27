@@ -32,6 +32,7 @@
     // make arabic font bigger in quran (done) but for screenshots make it 30sp so you can use ali-imran
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
 

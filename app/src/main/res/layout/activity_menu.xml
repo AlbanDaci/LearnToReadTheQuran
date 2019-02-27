@@ -35,7 +35,8 @@
             android:text="Learn To Read"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="StartQuizActivity" />
 
         <Button
             android:id="@+id/QuranButton"

@@ -8,21 +8,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
 import java.io.IOException;
 
-public class Al_Fatihah extends AppCompatActivity {
+public class Al_Fatihah extends AppCompatActivity implements RewardedVideoAdListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/001.mp3";
     private MediaPlayer mediaPlayer;
+    private RewardedVideoAd mAd;
 
     String [] verses = {"1:1", "1:2", "1:3", "1:4", "1:5", "1:6", "1:7", ""};
 
@@ -61,6 +67,9 @@ public class Al_Fatihah extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mAd = MobileAds.getRewardedVideoAdInstance(this);
+        mAd.setRewardedVideoAdListener(this);
+        loadAd();
     }
 
     @Override
@@ -74,18 +83,68 @@ public class Al_Fatihah extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         /* final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.al_fatihah);
         mediaPlayer.start(); */
+
+            if (mAd.isLoaded()) {
+                mAd.show();
+            }
+
         try {
             mediaPlayer.setDataSource(URL1);
             mediaPlayer.prepareAsync();
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer1) {
-                    mediaPlayer1.start();
+                    // mediaPlayer1.start();
                 }
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadAd(){
+        if(!mAd.isLoaded()) {
+            mAd.loadAd("ca-app-pub-7711850653949753/1893084642", new AdRequest.Builder().build());
+        }
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+        Toast.makeText(this, "Click the Play button and watch the Ad until the end to listen to the audio", Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+        mediaPlayer.start();
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+
     }
 }

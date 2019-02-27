@@ -8,21 +8,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.tumblr.albandaci.learntoreadthequran.Adapter.Al_Fatihah_Adapter;
 import com.tumblr.albandaci.learntoreadthequran.R;
 
 import java.io.IOException;
 
-public class Al_Baqarah extends AppCompatActivity {
+public class Al_Baqarah extends AppCompatActivity implements RewardedVideoAdListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private String URL1 = "https://www.al-hamdoulillah.com/coran/mp3/files/mohammed-siddiq-minshawi/002.mp3";
     private MediaPlayer mediaPlayer;
+    private RewardedVideoAd mAd;
 
     String [] verses = {"2:1", "2:2", "2:3", "2:4", "2:5", "2:6", "2:7", "2:8", "2:9", "2:10", "2:11", "2:12", "2:13", "2:14", "2:15", "2:16",
             "2:17", "2:18", "2:19", "2:20", "2:21", "2:22", "2:23", "2:24", "2:25", "2:26", "2:27", "2:28", "2:29", "2:30", "2:31", "2:32",
@@ -674,6 +680,9 @@ public class Al_Baqarah extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mAd = MobileAds.getRewardedVideoAdInstance(this);
+        mAd.setRewardedVideoAdListener(this);
+        loadAd();
     }
 
     @Override
@@ -685,13 +694,18 @@ public class Al_Baqarah extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (mAd.isLoaded()) {
+            mAd.show();
+        }
+
         try {
             mediaPlayer.setDataSource(URL1);
             mediaPlayer.prepareAsync();
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer1) {
-                    mediaPlayer1.start();
+                    // mediaPlayer1.start();
                 }
             });
         } catch (IOException e) {
@@ -699,4 +713,50 @@ public class Al_Baqarah extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void loadAd(){
+        if(!mAd.isLoaded()) {
+            mAd.loadAd("ca-app-pub-7711850653949753/1893084642", new AdRequest.Builder().build());
+        }
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+        Toast.makeText(this, "Click the Play button and watch the Ad until the end to listen to the audio", Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+        mediaPlayer.start();
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+
+    }
+
 }
